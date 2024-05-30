@@ -11,7 +11,11 @@ function camarillaPivotPoints(high, low, close) {
     const s3 = close - (high - low) * 1.1 / 4;
     const s4 = close - (high - low) * 1.1 / 2;
 
+    const breakoutTarget = close + (high - low) * 1.1;
+    const breakdownTarget = close - (high - low) * 1.1;
+
     return {
+        "breakout_target": breakoutTarget,
         "resistance_4": r4,
         "resistance_3": r3,
         "resistance_2": r2,
@@ -20,7 +24,8 @@ function camarillaPivotPoints(high, low, close) {
         "support_1": s1,
         "support_2": s2,
         "support_3": s3,
-        "support_4": s4
+        "support_4": s4,
+        "breakdown_target": breakdownTarget
     };
 }
 

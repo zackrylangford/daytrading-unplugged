@@ -63,3 +63,9 @@ button:hover {
 .results span {
     font-weight: bold;
 }
+
+.pivot-section {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+}
