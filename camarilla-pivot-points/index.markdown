@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Camarilla Pivot Points Calculator</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Camarilla Pivot Points Calculator</h1>
+---
+layout: default
+title: Camarilla Futures
+---
+
+<div class="container">
+    <h1>{{ page.title }}</h1>
+    <div class="calculator">
         <div class="input-group">
             <label for="high">Previous day high:</label>
             <input type="text" id="high">
@@ -39,6 +36,16 @@
             </div>
         </div>
     </div>
-    <script src="calc.js"></script>
-</body>
-</html>
+    <div class="newsfeed">
+        <h2>Latest Blog Posts</h2>
+        <ul>
+            {% for post in site.posts limit:5 %}
+            <li>
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                <p>{{ post.date | date: "%B %d, %Y" }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<script src="{{ '/assets/js/calc.js' | relative_url }}"></script>
