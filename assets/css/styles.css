@@ -30,14 +30,27 @@ header nav ul li a {
 }
 
 .container {
-    max-width: 800px;
+    display: flex;
+    flex-wrap: wrap;
     margin: 2rem auto;
     padding: 1rem;
+    max-width: 1200px; /* Adjust as necessary */
     background-color: #f9f9f9;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
+}
+
+.sidebar {
+    flex: 1 1 250px;
+    padding: 20px;
+    background-color: #e9ecef;
+    border-right: 1px solid #dee2e6;
+    margin-bottom: 2rem; /* Adjust as necessary */
+}
+
+.main-content {
+    flex: 3 1 600px;
+    padding: 20px;
 }
 
 .calculator {
@@ -122,10 +135,22 @@ footer {
     }
     
     .container {
+        flex-direction: column;
         margin: 1rem;
         padding: 0.5rem;
     }
+
+    .sidebar {
+        border-right: none;
+        border-bottom: 1px solid #dee2e6;
+        margin-bottom: 1rem;
+    }
+
+    .main-content {
+        padding: 1rem 0;
+    }
 }
+
 .img-responsive {
     max-width: 100%;
     max-height: 500px; /* Adjust as necessary */

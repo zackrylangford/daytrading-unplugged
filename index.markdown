@@ -1,51 +1,89 @@
 ---
-layout: default
+layout: home
 title: Camarilla Futures
 ---
 
 <div class="container">
-    <h1>Camarilla Pivot Points Calculator</h1>
-    <div class="calculator">
-        <div class="input-group">
-            <label for="high">Previous day high:</label>
-            <input type="text" id="high">
-        </div>
-        <div class="input-group">
-            <label for="low">Previous day low:</label>
-            <input type="text" id="low">
-        </div>
-        <div class="input-group">
-            <label for="close">Previous day close:</label>
-            <input type="text" id="close">
-        </div>
-        <button id="calculate-button">Calculate</button>
-        <div class="results">
-            <h2>Results</h2>
-            <p>Breakout Target: <span id="breakout_target"></span></p>
-            <p>Resistance 4: <span id="resistance_4"></span></p>
-            <p>Resistance 3: <span id="resistance_3"></span></p>
-            <p>Resistance 2: <span id="resistance_2"></span></p>
-            <p>Resistance 1: <span id="resistance_1"></span></p>
-            <p>Support 1: <span id="support_1"></span></p>
-            <p>Support 2: <span id="support_2"></span></p>
-            <p>Support 3: <span id="support_3"></span></p>
-            <p>Support 4: <span id="support_4"></span></p>
-            <p>Breakdown Target: <span id="breakdown_target"></span></p>
-            <div class="pivot-section">
-                <p>Pivot Point: <span id="pivot_point"></span></p>
+    <div class="sidebar">
+        <h2>Camarilla Pivot Points Calculator</h2>
+        <div class="calculator">
+            <div class="input-group">
+                <label for="high">Previous day high:</label>
+                <input type="text" id="high">
+            </div>
+            <div class="input-group">
+                <label for="low">Previous day low:</label>
+                <input type="text" id="low">
+            </div>
+            <div class="input-group">
+                <label for="close">Previous day close:</label>
+                <input type="text" id="close">
+            </div>
+            <button id="calculate-button">Calculate</button>
+            <div class="results">
+                <h3>Results</h3>
+                <p>Breakout Target: <span id="breakout_target"></span></p>
+                <p>Resistance 4: <span id="resistance_4"></span></p>
+                <p>Resistance 3: <span id="resistance_3"></span></p>
+                <p>Resistance 2: <span id="resistance_2"></span></p>
+                <p>Resistance 1: <span id="resistance_1"></span></p>
+                <p>Support 1: <span id="support_1"></span></p>
+                <p>Support 2: <span id="support_2"></span></p>
+                <p>Support 3: <span id="support_3"></span></p>
+                <p>Support 4: <span id="support_4"></span></p>
+                <p>Breakdown Target: <span id="breakdown_target"></span></p>
+                <div class="pivot-section">
+                    <p>Pivot Point: <span id="pivot_point"></span></p>
+                </div>
             </div>
         </div>
     </div>
-    <div class="newsfeed">
-        <h2>Latest Blog Posts</h2>
-        <ul>
-            {% for post in site.posts limit:5 %}
-            <li>
-                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                <p>{{ post.date | date: "%B %d, %Y" }}</p>
-            </li>
-            {% endfor %}
-        </ul>
+    <div class="main-content">
+        <h1>Camarilla Pivot Points</h1>
+        <p>Below is a table of the Camarilla pivot points for various futures tickers:</p>
+        <table class="cam-table">
+            <thead>
+                <tr>
+                    <th>Ticker</th>
+                    <th>R4</th>
+                    <th>R3</th>
+                    <th>R2</th>
+                    <th>R1</th>
+                    <th>P</th>
+                    <th>S1</th>
+                    <th>S2</th>
+                    <th>S3</th>
+                    <th>S4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ES</td>
+                    <td>4200</td>
+                    <td>4180</td>
+                    <td>4160</td>
+                    <td>4140</td>
+                    <td>4120</td>
+                    <td>4100</td>
+                    <td>4080</td>
+                    <td>4060</td>
+                    <td>4040</td>
+                </tr>
+                <tr>
+                    <td>NQ</td>
+                    <td>14000</td>
+                    <td>13950</td>
+                    <td>13900</td>
+                    <td>13850</td>
+                    <td>13800</td>
+                    <td>13750</td>
+                    <td>13700</td>
+                    <td>13650</td>
+                    <td>13600</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
     </div>
 </div>
 <script src="{{ '/assets/js/calc.js' | relative_url }}"></script>
