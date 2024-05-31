@@ -10,8 +10,15 @@
 <body>
     <header>
         <nav>
-            <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
-            <ul>
+            <div class="logo">
+                <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-list">
                 <li><a href="{{ '/' | relative_url }}">Home</a></li>
                 <li><a href="{{ '/blog' | relative_url }}">Blog</a></li>
             </ul>
@@ -23,5 +30,13 @@
     <footer>
         <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}</p>
     </footer>
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.querySelector('.nav-list');
+
+        mobileMenu.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
