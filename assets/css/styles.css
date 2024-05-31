@@ -32,6 +32,7 @@ header nav ul {
 header nav ul li a {
     color: #fff;
     text-decoration: none;
+    margin-right: 8px;
 }
 
 header .logo h1 {
@@ -96,11 +97,13 @@ header .nav-list li a {
 
 .input-group {
     margin-bottom: 1rem;
-    font-size: 14px;
 }
 
-.input {
-    font-size: 14px;
+.input-group input {
+    font-size: 16px; /* Ensures inputs are large enough to prevent zooming */
+    padding: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .results {
