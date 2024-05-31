@@ -4,7 +4,7 @@ title: Camarilla Futures
 ---
 
 <div class="container">
-    <h1>{{ page.title }}</h1>
+    <h1>Camarilla Pivot Points Calculator</h1>
     <div class="calculator">
         <div class="input-group">
             <label for="high">Previous day high:</label>
