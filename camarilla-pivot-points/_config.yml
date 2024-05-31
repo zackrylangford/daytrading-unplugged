@@ -21,8 +21,8 @@
 title: Camarilla Futures
 email: zack@cloudzack.com
 description: "A blog about the Camarilla pivot point strategy."
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/camarilla-futures" # the subpath of your site, e.g. /blog
+url: "https://zackrylangford.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 plugins:
