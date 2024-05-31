@@ -46,11 +46,13 @@ header nav ul li a {
     background-color: #e9ecef;
     border-right: 1px solid #dee2e6;
     margin-bottom: 2rem; /* Adjust as necessary */
+    box-sizing: border-box;
 }
 
 .main-content {
     flex: 3 1 600px;
     padding: 20px;
+    box-sizing: border-box;
 }
 
 .calculator {
@@ -141,13 +143,19 @@ footer {
     }
 
     .sidebar {
+        flex: 1 1 100%;
         border-right: none;
         border-bottom: 1px solid #dee2e6;
         margin-bottom: 1rem;
     }
 
     .main-content {
+        flex: 1 1 100%;
         padding: 1rem 0;
+    }
+
+    .cam-table {
+        overflow-x: auto;
     }
 }
 
