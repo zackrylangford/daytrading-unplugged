@@ -14,6 +14,8 @@ Gold really played well off of the Camarilla points today. Just needed to be a l
 
 Took four trades today. Here's a detailed breakdown:
 
+**Total P/L**: +$449
+
 ### Trade 1: MGC (Micro Gold)
 - **Position**: Short (3 contracts)
 - **Entry**: 2375.10 (Above R3)
