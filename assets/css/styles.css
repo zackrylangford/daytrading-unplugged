@@ -96,6 +96,11 @@ header .nav-list li a {
 
 .input-group {
     margin-bottom: 1rem;
+    font-size: 14px;
+}
+
+.input {
+    font-size: 14px;
 }
 
 .results {
@@ -106,7 +111,6 @@ footer {
     background: linear-gradient(90deg, rgba(0,123,255,1) 0%, rgba(0,82,204,1) 100%);
     color: #fff;
     text-align: center;
-    padding: 1rem;
     position: fixed;
     bottom: 0;
     width: 100%;
