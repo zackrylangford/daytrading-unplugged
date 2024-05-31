@@ -123,12 +123,15 @@ footer {
 .cam-table {
     width: 100%;
     border-collapse: collapse;
+    font-size: 14px; /* Adjusted for smaller screens */
+    margin-bottom: 100px;
 }
 
 .cam-table th, .cam-table td {
     border: 1px solid #dee2e6;
     padding: 8px;
     text-align: center;
+    font-size: 12px; /* Adjusted for smaller screens */
 }
 
 .cam-table th {
@@ -167,6 +170,15 @@ footer {
     .main-content {
         flex: 1 1 100%;
         padding: 1rem 0;
+    }
+
+    .cam-table {
+        font-size: 12px; /* Further reduced font size for smaller screens */
+    }
+
+    .cam-table th, .cam-table td {
+        padding: 4px; /* Reduced padding for smaller screens */
+        font-size: 10px; /* Further reduced font size for smaller screens */
     }
 
     .cam-table {
