@@ -40,11 +40,12 @@ title: Camarilla Futures
     </div>
     <div class="main-content">
         <h1>Camarilla Pivot Points</h1>
-        <p>Below is a table of the Camarilla pivot points for various futures tickers:</p>
-        <table class="cam-table" id="pivotTable">
+        <p>Below is a table of the Camarilla pivot points for topstep eligible futures tickers. The values update everyday at 4:15pm EST</p>
+        <table class="cam-table">
             <thead>
                 <tr>
                     <th>Ticker</th>
+                    <th>Name</th>
                     <th>R4</th>
                     <th>R3</th>
                     <th>R2</th>
@@ -56,9 +57,7 @@ title: Camarilla Futures
                     <th>S4</th>
                 </tr>
             </thead>
-            <tbody>
-                <!-- Data will be inserted here dynamically -->
-            </tbody>
+            <tbody id="pivotTableBody"></tbody>
         </table>
     </div>
 </div>
