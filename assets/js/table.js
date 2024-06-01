@@ -80,6 +80,89 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     };
 
-    // Fetch and populate the table on page load
+
+
+    const updateClock = () => {
+        const clockElement = document.getElementById('clock');
+        const validDateElement = document.getElementById('valid-date');
+        const nextValidDateElement = document.getElementById('next-valid-date');
+        const now = new Date();
+
+        // Convert to Central Time (CT)
+        const centralTime = now.toLocaleString('en-US', { timeZone: 'America/Chicago' });
+        const centralDate = new Date(centralTime);
+
+        // Format current time
+        const timeString = centralDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+        // Format current date
+        const dateString = centralDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
+        clockElement.innerHTML = `Current Time (CT): ${dateString}, ${timeString}`;
+
+        // Calculate the valid date for the trading data
+        const validDate = calculateValidDate(centralDate);
+        const validDateString = validDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
+        validDateElement.innerHTML = `Data calculated from the last completed trading day: ${validDateString}`;
+
+        // Calculate the next valid trading date range
+        const { startDate, endDate } = calculateNextValidDateRange(validDate);
+        const startDateString = startDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        const endDateString = endDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
+        nextValidDateElement.innerHTML = `Data is valid for the trading session: ${startDateString} 5:00 PM CT to ${endDateString} 3:10 PM CT`;
+    };
+
+    const calculateValidDate = (centralDate) => {
+        let validDate = new Date(centralDate);
+        const day = validDate.getDay(); // Sunday - Saturday : 0 - 6
+        const hour = validDate.getHours();
+
+        // Adjust validDate to the last completed trading day
+        if (day === 0 || (day === 1 && hour < 17)) {
+            // Sunday or before 5 PM Monday: use Friday
+            validDate.setDate(validDate.getDate() - (day === 0 ? 2 : 3));
+        } else if (hour < 17 && day !== 1) {
+            // Before 5 PM on any other weekday: use the previous weekday
+            validDate.setDate(validDate.getDate() - 1);
+        }
+
+        // Adjust if it's after 3:10 PM and before 5 PM on Friday
+        if (day === 5 && hour >= 15 && (hour < 17 || (hour === 15 && validDate.getMinutes() >= 10))) {
+            validDate.setDate(validDate.getDate() - 1);
+        }
+
+        return validDate;
+    };
+
+    const calculateNextValidDateRange = (validDate) => {
+        const startDate = new Date(validDate);
+        startDate.setDate(startDate.getDate() + 1);
+        startDate.setHours(17, 0, 0, 0); // 5:00 PM CT
+
+        const endDate = new Date(startDate);
+        endDate.setDate(endDate.getDate() + 1);
+        endDate.setHours(15, 10, 0, 0); // 3:10 PM CT
+
+        // If it's Friday, skip to Sunday evening
+        if (startDate.getDay() === 6) {
+            startDate.setDate(startDate.getDate() + 1); // Move to Sunday 5:00 PM
+            endDate.setDate(endDate.getDate() + 1); // Move to Monday 3:10 PM
+        }
+
+        // If it's Saturday, adjust end date to Monday 3:10 PM
+        if (startDate.getDay() === 0) {
+            endDate.setDate(endDate.getDate() + 1); // Move to Monday 3:10 PM
+        }
+
+        return { startDate, endDate };
+    };
+
+    // Initial call to fetch data and update clock
     fetchAndPopulateTable();
+    updateClock();
+
+    // Update the clock every second
+    setInterval(updateClock, 1000);
 });

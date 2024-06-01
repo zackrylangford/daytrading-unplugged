@@ -282,3 +282,21 @@ footer {
     margin-right: auto;
     padding: 10px 0; /* Adds space above and below the image */
 }
+
+.view-more-link {
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.view-more-link:hover {
+    text-decoration: underline;
+}
+
+#clock, #valid-date, #next-valid-date {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #333;
+}
+
