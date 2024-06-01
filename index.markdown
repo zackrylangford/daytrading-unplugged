@@ -41,50 +41,26 @@ title: Camarilla Futures
     <div class="main-content">
         <h1>Camarilla Pivot Points</h1>
         <p>Below is a table of the Camarilla pivot points for various futures tickers:</p>
-        <table class="cam-table">
-    <thead>
-        <tr>
-            <th>Ticker</th>
-            <th>R4</th>
-            <th>R3</th>
-            <th>R2</th>
-            <th>R1</th>
-            <th>P</th>
-            <th>S1</th>
-            <th>S2</th>
-            <th>S3</th>
-            <th>S4</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>ES</td>
-            <td>4200</td>
-            <td>4180</td>
-            <td>4160</td>
-            <td>4140</td>
-            <td>4120</td>
-            <td>4100</td>
-            <td>4080</td>
-            <td>4060</td>
-            <td>4040</td>
-        </tr>
-        <tr>
-            <td>NQ</td>
-            <td>14000</td>
-            <td>13950</td>
-            <td>13900</td>
-            <td>13850</td>
-            <td>13800</td>
-            <td>13750</td>
-            <td>13700</td>
-            <td>13650</td>
-            <td>13600</td>
-        </tr>
-        <!-- Add more rows as needed -->
-    </tbody>
-</table>
-
+        <table class="cam-table" id="pivotTable">
+            <thead>
+                <tr>
+                    <th>Ticker</th>
+                    <th>R4</th>
+                    <th>R3</th>
+                    <th>R2</th>
+                    <th>R1</th>
+                    <th>P</th>
+                    <th>S1</th>
+                    <th>S2</th>
+                    <th>S3</th>
+                    <th>S4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be inserted here dynamically -->
+            </tbody>
+        </table>
     </div>
 </div>
 <script src="{{ '/assets/js/calc.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/table.js' | relative_url }}"></script>
