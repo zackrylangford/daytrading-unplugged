@@ -63,17 +63,17 @@ document.addEventListener("DOMContentLoaded", function() {
             if (item) {
                 const row = document.createElement("tr");
                 row.innerHTML = `
-                    <td>${ticker.symbol}</td>
-                    <td>${ticker.name}</td>
-                    <td>${item.resistance_4.toFixed(2)}</td>
-                    <td>${item.resistance_3.toFixed(2)}</td>
-                    <td>${item.resistance_2.toFixed(2)}</td>
-                    <td>${item.resistance_1.toFixed(2)}</td>
-                    <td>${item.pivot_point.toFixed(2)}</td>
-                    <td>${item.support_1.toFixed(2)}</td>
-                    <td>${item.support_2.toFixed(2)}</td>
-                    <td>${item.support_3.toFixed(2)}</td>
-                    <td>${item.support_4.toFixed(2)}</td>
+                    <td data-label="Ticker">${ticker.symbol}</td>
+                    <td data-label="Name">${ticker.name}</td>
+                    <td data-label="R4">${item.resistance_4.toFixed(2)}</td>
+                    <td data-label="R3">${item.resistance_3.toFixed(2)}</td>
+                    <td data-label="R2">${item.resistance_2.toFixed(2)}</td>
+                    <td data-label="R1">${item.resistance_1.toFixed(2)}</td>
+                    <td data-label="P">${item.pivot_point.toFixed(2)}</td>
+                    <td data-label="S1">${item.support_1.toFixed(2)}</td>
+                    <td data-label="S2">${item.support_2.toFixed(2)}</td>
+                    <td data-label="S3">${item.support_3.toFixed(2)}</td>
+                    <td data-label="S4">${item.support_4.toFixed(2)}</td>
                 `;
                 tableBody.appendChild(row);
             }
