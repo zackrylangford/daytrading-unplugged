@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const startDateString = startDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
         const endDateString = endDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
-        nextValidDateElement.innerHTML = `Data is valid for the trading session: ${startDateString} 5:00 PM CT to ${endDateString} 3:10 PM CT`;
+        nextValidDateElement.innerHTML = `Data is valid for the next trading session: ${startDateString} 5:00 PM CT to ${endDateString} 3:10 PM CT`;
     };
 
     const calculateValidDate = (centralDate) => {
@@ -137,21 +137,22 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     const calculateNextValidDateRange = (validDate) => {
-        const startDate = new Date(validDate);
+        let startDate = new Date(validDate);
+        let endDate = new Date(validDate);
+
         startDate.setDate(startDate.getDate() + 1);
         startDate.setHours(17, 0, 0, 0); // 5:00 PM CT
 
-        const endDate = new Date(startDate);
         endDate.setDate(endDate.getDate() + 1);
         endDate.setHours(15, 10, 0, 0); // 3:10 PM CT
 
-        // If it's Friday, skip to Sunday evening
+        // If the start date is Saturday, skip to Sunday evening
         if (startDate.getDay() === 6) {
             startDate.setDate(startDate.getDate() + 1); // Move to Sunday 5:00 PM
             endDate.setDate(endDate.getDate() + 1); // Move to Monday 3:10 PM
         }
 
-        // If it's Saturday, adjust end date to Monday 3:10 PM
+        // If the start date is Sunday, adjust end date to Monday 3:10 PM
         if (startDate.getDay() === 0) {
             endDate.setDate(endDate.getDate() + 1); // Move to Monday 3:10 PM
         }
