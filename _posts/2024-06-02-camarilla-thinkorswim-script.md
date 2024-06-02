@@ -22,7 +22,7 @@ Download the script file by clicking the link below:
 1. Open thinkorswim.
 2. Go to the `Studies` menu and select `Edit Studies`.
 3. Click on the `Import` button.
-4. Navigate to the downloaded `CamarillaPivotPoints.ts` file and select it to import.
+4. Navigate to the downloaded `CamarillaPivotPointsSTUDY.ts` file and select it to import.
 5. The script will be added to your list of studies. You can then apply it to your chart.
 
 **Step 3: Apply the Script to Your Chart**
