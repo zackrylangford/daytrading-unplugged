@@ -2,7 +2,7 @@
 layout: blog-post
 title:  "Trading Recap - May 31, 2024"
 date:   2024-05-31
-categories: trading recap
+categories: trade-recap
 ---
 
 ## Trading Recap - May 31, 2024

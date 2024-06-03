@@ -5,15 +5,17 @@ title: Camarilla Futures
 
 <div class="container">
     <div class="sidebar">
-        <h2>Zack's Trade Recaps</h2>
-        <ul>
-            {% for post in site.posts limit:5 %}
-            <li>
-                <a href="{{ post.url | relative_url }}">{{ post.date | date: "%B %d, %Y" }}</a>
-            </li>
-            {% endfor %}
-        </ul>
-        <a href="{{ '/trade-recaps' | relative_url }}" class="view-more-link">More Recaps</a>
+<h2>Zack's Trade Recaps</h2>
+<ul>
+    {% assign trade_recaps = site.posts | where: "categories", "trade-recap" | sort: 'date' | reverse %}
+    {% for post in trade_recaps limit:5 %}
+    <li>
+        <a href="{{ post.url | relative_url }}">{{ post.date | date: "%B %d, %Y" }}</a>
+    </li>
+    {% endfor %}
+</ul>
+<a href="{{ '/trade-recaps' | relative_url }}" class="view-more-link">More Recaps</a>
+
     </div>
 
     <div class="main-content">

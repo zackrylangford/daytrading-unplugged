@@ -2,7 +2,7 @@
 layout: blog-post
 title: "Camarilla Pivot Points Script for thinkorswim"
 date: 2024-06-02
-categories: [thinkorswim, trading, scripts]
+categories: [downloads]
 ---
 
 ## Camarilla Pivot Points Script for thinkorswim
