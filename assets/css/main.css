@@ -3,6 +3,9 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body takes the full height of the viewport */
 }
 
 header {
@@ -79,6 +82,7 @@ header .nav-list li a {
     background-color: #f9f9f9;
     border-radius: 5px;
     box-sizing: border-box;
+    flex: 1; /* Make the container flex to take available space */
 }
 
 .sidebar {
@@ -318,4 +322,7 @@ header .nav-list li a {
 
 footer {
     text-align: center;
+    margin-top: auto; /* Make the footer stick to the bottom */
+    padding: 10px;
+    background-color: #f1f1f1;
 }
