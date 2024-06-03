@@ -5,6 +5,9 @@ title: Camarilla Futures
 
 <div class="container">
     <div class="sidebar">
+            <div class="info-section">
+            <div id="clock" class="info-box"></div>
+        </div>
 <h2>Zack's Trade Recaps</h2>
 <ul>
     {% assign trade_recaps = site.posts | where: "categories", "trade-recap" | sort: 'date' | reverse %}
@@ -16,13 +19,13 @@ title: Camarilla Futures
 </ul>
 <a href="{{ '/trade-recaps' | relative_url }}" class="view-more-link">More Recaps</a>
 
+
     </div>
 
     <div class="main-content">
         <h1>Camarilla Pivot Points</h1>
-        <p>Below is a table of the Camarilla pivot points for topstep eligible futures tickers. The values update everyday at 4:00pm CT</p>
-        <div class="info-section">
-            <div id="clock" class="info-box"></div>
+        <p>Below is a table of the Camarilla pivot points for Topstep eligible futures tickers. The values update everyday at 4:00pm CT</p>
+                    <div class="info-section">
             <div id="valid-date" class="info-box"></div>
             <div id="next-valid-date" class="info-box"></div>
         </div>
