@@ -40,3 +40,5 @@ title: Camarilla Calculator
     </div>
 </div>
 </div>
+
+<script src="{{ '/assets/js/calc.js' | relative_url }}"></script>

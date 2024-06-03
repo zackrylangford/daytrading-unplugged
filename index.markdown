@@ -46,3 +46,4 @@ title: Camarilla Futures
         </table>
     </div>
 </div>
+<script src="{{ '/assets/js/table.js' | relative_url }}"></script>

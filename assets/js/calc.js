@@ -38,17 +38,19 @@ function getFloatInput(value) {
     return num;
 }
 
-document.getElementById("calculate-button").addEventListener("click", function() {
-    try {
-        const high = getFloatInput(document.getElementById("high").value);
-        const low = getFloatInput(document.getElementById("low").value);
-        const close = getFloatInput(document.getElementById("close").value);
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("calculate-button").addEventListener("click", function() {
+        try {
+            const high = getFloatInput(document.getElementById("high").value);
+            const low = getFloatInput(document.getElementById("low").value);
+            const close = getFloatInput(document.getElementById("close").value);
 
-        const pivotPoints = camarillaPivotPoints(high, low, close);
-        for (const [key, value] of Object.entries(pivotPoints)) {
-            document.getElementById(key).innerText = value.toFixed(2);
+            const pivotPoints = camarillaPivotPoints(high, low, close);
+            for (const [key, value] of Object.entries(pivotPoints)) {
+                document.getElementById(key).innerText = value.toFixed(2);
+            }
+        } catch (e) {
+            console.error(e);
         }
-    } catch (e) {
-        console.error(e);
-    }
+    });
 });

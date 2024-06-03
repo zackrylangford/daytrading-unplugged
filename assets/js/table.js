@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const response = await fetch(apiUrl);
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const data = await response.json();
-            console.log("Fetched data:", data);  // Log the fetched data
+            // console.log("Fetched data:", data);  // Log the fetched data
             populateTable(data);
         } catch (error) {
             console.error("Error fetching data:", error);
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         tickers.forEach(ticker => {
             const item = data.find(d => d.symbol === `${ticker.symbol}=F`);
-            console.log(`Processing ticker: ${ticker.symbol}`, item);  // Log each ticker and the corresponding item
+            // console.log(`Processing ticker: ${ticker.symbol}`, item);  
             if (item) {
                 const row = document.createElement("tr");
                 row.innerHTML = `
