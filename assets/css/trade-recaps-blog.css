@@ -1,0 +1,47 @@
+/* Container for the trade recaps page */
+.trade-recaps-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+/* Header styling */
+.trade-recaps-container h1 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #4A90E2;
+    margin-bottom: 20px;
+}
+
+/* List styling */
+.trade-recaps-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* List item styling */
+.trade-recap-item {
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+}
+
+/* Link styling */
+.trade-recap-link {
+    font-size: 1.5em;
+    color: #4A90E2;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.trade-recap-link:hover {
+    color: #f39c12;
+}
+
+/* Date styling */
+.trade-recap-date {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 5px;
+}
