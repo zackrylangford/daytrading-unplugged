@@ -24,7 +24,7 @@ title: Camarilla Futures
 
     <div class="main-content">
         <h1>Camarilla Pivot Points</h1>
-        <p>Below is a table of the Camarilla pivot points for Topstep eligible futures tickers. The values update everyday at 4:00pm CT</p>
+        <p>Below is a table of the Camarilla pivot points for Topstep eligible futures tickers. The values update everyday at 4:00pm CSST</p>
                     <div class="info-section">
             <div id="valid-date" class="info-box"></div>
             <div id="next-valid-date" class="info-box"></div>

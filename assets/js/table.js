@@ -98,20 +98,20 @@ document.addEventListener("DOMContentLoaded", function() {
         // Format current date
         const dateString = centralDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
-        clockElement.innerHTML = `Current Time (CT): ${dateString}, ${timeString}`;
+        clockElement.innerHTML = `Central Time (CST): ${dateString}, ${timeString}`;
 
         // Calculate the valid date for the trading data
         const validDate = calculateValidDate(centralDate);
         const validDateString = validDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
-        validDateElement.innerHTML = `Data calculated from the last completed trading day: ${validDateString}`;
+        validDateElement.innerHTML = `Data calculated from the last completed trading day:<br> ${validDateString}`;
 
         // Calculate the next valid trading date range
         const { startDate, endDate } = calculateNextValidDateRange(validDate);
         const startDateString = startDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
         const endDateString = endDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
-        nextValidDateElement.innerHTML = `Data is valid for the next trading session: ${startDateString} 5:00 PM CT to ${endDateString} 3:10 PM CT`;
+        nextValidDateElement.innerHTML = `Data is valid for the next trading session:<br> ${startDateString} 5:00 PM CT to ${endDateString} 3:10 PM CST`;
     };
 
     const calculateValidDate = (centralDate) => {
