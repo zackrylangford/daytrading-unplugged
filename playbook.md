@@ -10,18 +10,16 @@ permalink: /playbook/
 </div>
 
 <div class="playbook-content">
-
-    <div class="strategy" id="strategy-1">
-        <h2>Strategy 1</h2>
-        <p>Description of Strategy 1...</p>
+    <div class="card-container">
+        {% assign strategies = site.posts | where: "categories", "strategy" | sort: 'date' | reverse %}
+        {% for post in strategies %}
+        <div class="card">
+            <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+            <p>{{ post.excerpt }}</p>
+            <a href="{{ post.url | relative_url }}" class="read-more-link">View Strategy</a>
+        </div>
+        {% endfor %}
     </div>
-
-    <div class="strategy" id="strategy-2">
-        <h2>Strategy 2</h2>
-        <p>Description of Strategy 2...</p>
-    </div>
-
-    <!-- Add more strategies as needed -->
 </div>
 
 <link rel="stylesheet" href="{{ '/assets/css/playbook.css' | relative_url }}">
