@@ -25,7 +25,7 @@ title: Camarilla Futures
     </div>
 
     <div class="main-content">
-    <h2>Latest</h2>
+    <h2>Latest Post</h2>
         {% assign latest_post = site.posts | sort: 'date' | last %}
         <p>{{ latest_post.content }}</p>
     </div>
