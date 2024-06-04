@@ -9,6 +9,9 @@ categories: trade-recap
 
 ### Overview
 
+Started the day off well with a nice little scalp on Micro Gold. Will continue to monitor throughout the day and see what is going. Took a trade on MES and got lucky on the pop back up. This one looks choppy, so I am glad I got out when I did. My silver trade was garbage though. Should not have taken it. It looks like it may go my way but I was way too overanxious and impatient with it. Just need to relax. 
+
+
 **Total P/L**: +$255.79
 
 
@@ -59,8 +62,7 @@ categories: trade-recap
 ![Screenshot 1]({{ "/assets/images/trading-recaps/2024-06-04trade3.png" | relative_url }}){: .img-responsive}
 
 
-### Summary
-Starting the day off well with a nice little scalp on Micro Gold. Will continue to monitor throughout the day and see what is going. Took a trade on MES and got lucky on the pop back up. This one looks choppy, so I am glad I got out when I did. My silver trade was garbage though. Should not have taken it. It looks like it may go my way but I was way too overanxious and impatient with it. Just need to relax. 
+
 
 **Total P/L**: +$255.79
 ![Screenshot 1]({{ "/assets/images/trading-recaps/2024-06-04pnl.png" | relative_url }}){: .img-responsive}
