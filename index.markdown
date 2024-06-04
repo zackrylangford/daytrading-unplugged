@@ -18,6 +18,13 @@ title: Camarilla Futures
             {% endfor %}
         </ul>
         <a href="{{ '/trade-recaps' | relative_url }}" class="view-more-link">More Recaps</a>
+            <h2>Playbook</h2>
+        <ul>
+            <li>
+                <a href="{{ '/playbook' | relative_url }}">Trading Strategies Playbook</a>
+            </li>
+        </ul>
+    
     </div>
 
     <div class="main-content">
