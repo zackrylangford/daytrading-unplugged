@@ -30,7 +30,7 @@ categories: trade-recap
 
 ---
 
-### Trade 1: MES (Micro S&P)
+### Trade 2: MES (Micro S&P)
 - **Position**: Long (3 contracts)
 - **Entry**: 5287.00 (Above S2 and VWAP)
 - **Original Stop**: 5279.00 (Break of VWAP with buffer)
@@ -45,10 +45,22 @@ categories: trade-recap
 
 ![Screenshot 1]({{ "/assets/images/trading-recaps/2024-06-04trade2.png" | relative_url }}){: .img-responsive}
 
+### Trade 3: SIL (Micro Silver)
+- **Position**: Long (1 contract)
+- **Entry**: 29.72 (Above Breadown Target after bounce)
+- **Original Stop**: 29.62 (Break of the Breakdown Target (29.65))
+- **Exit 1**: 29.61 (Stop Loss Triggered)
+
+- **Result**: (-$105)
+
+**Notes**: Should not have taken this trade. Feeling really down about it. Looks like it's going to go the way I wanted to, but I jumped in way too early and in a market I am unfamiliar with. It sold off pretty hard after my entry. It looks like it may bounce, but I jumped in way too early. Not good.
+
+
+![Screenshot 1]({{ "/assets/images/trading-recaps/2024-06-04trade2.png" | relative_url }}){: .img-responsive}
 
 
 ### Summary
-Starting the day off well with a nice little scalp on Micro Gold. Will continue to monitor throughout the day and see what is going. 
+Starting the day off well with a nice little scalp on Micro Gold. Will continue to monitor throughout the day and see what is going. Took a trade on MES and got lucky on the pop back up. This one looks choppy, so I am glad I got out when I did. My silver trade was garbage though. Should not have taken it. It looks like it may go my way but I was way too overanxious and impatient with it. Just need to relax. 
 
 **Total P/L**: +$362.83
 
