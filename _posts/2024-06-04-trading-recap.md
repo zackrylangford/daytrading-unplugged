@@ -9,7 +9,7 @@ categories: trade-recap
 
 ### Overview
 
-**Total P/L**: +$362.83
+**Total P/L**: +$255.79
 
 
 ### Trade 1: MCG (Micro GOLD)
@@ -39,7 +39,7 @@ categories: trade-recap
 - **Exit 3**: 5290.25(Trailing stopped out as it sold off back towards VWAP)
 
 
-- **Result**: +$273.80
+- **Result**: +$86.99
 
 **Notes**: I didn't feel good about this after I entered. It looked like it was holding S3 pretty well and was wanting to go higher. I waited for a good entry but eventually got too impatient and jumped in. This one looked like it was going to stop me out. I think I came within a couple of ticks. However, there was a huge squeeze that I was able to sell into and now it is continuing to sell off back towards s3 and below. Glad I had the opportunity to get out when I had the chance to. Not sure what the pop was. Looks like 10am pop with a bunch of orders coming in. Should not have takent this trade! 
 
@@ -56,11 +56,12 @@ categories: trade-recap
 **Notes**: Should not have taken this trade. Feeling really down about it. Looks like it's going to go the way I wanted to, but I jumped in way too early and in a market I am unfamiliar with. It sold off pretty hard after my entry. It looks like it may bounce, but I jumped in way too early. Not good.
 
 
-![Screenshot 1]({{ "/assets/images/trading-recaps/2024-06-04trade2.png" | relative_url }}){: .img-responsive}
+![Screenshot 1]({{ "/assets/images/trading-recaps/2024-06-04trade3.png" | relative_url }}){: .img-responsive}
 
 
 ### Summary
 Starting the day off well with a nice little scalp on Micro Gold. Will continue to monitor throughout the day and see what is going. Took a trade on MES and got lucky on the pop back up. This one looks choppy, so I am glad I got out when I did. My silver trade was garbage though. Should not have taken it. It looks like it may go my way but I was way too overanxious and impatient with it. Just need to relax. 
 
-**Total P/L**: +$362.83
-
+**Total P/L**: +$255.79
+![Screenshot 1]({{ "/assets/images/trading-recaps/2024-06-04pnl.png" | relative_url }}){: .img-responsive}
+---
