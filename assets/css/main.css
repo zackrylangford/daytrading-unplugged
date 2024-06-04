@@ -1,9 +1,8 @@
-* {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
+
 
 
 body {
+    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -13,7 +12,7 @@ body {
 }
 
 header {
-    background: linear-gradient(90deg, rgba(0,123,255,1) 0%, rgba(0,82,204,1) 100%);
+    background: #151515;
     color: #fff;
     padding: 1rem 0;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -47,6 +46,8 @@ header nav ul li a {
 }
 
 header .logo h1 {
+    font-family: "Ubuntu Sans Mono", monospace;
+    font-optical-sizing: auto;
     margin: 0;
     font-size: 1.5rem;
 }
@@ -123,7 +124,7 @@ header .nav-list li a {
     margin-top: 10px;
     text-decoration: none;
     color: #fff;
-    background-color: #007bff;
+    background-color: #A91D3A;
     padding: 10px 15px;
     border-radius: 5px;
     text-align: center;
