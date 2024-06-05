@@ -1,4 +1,23 @@
 /* Container for the blog page */
+/* Playbook Header */
+.blog-list-header {
+    background: #151515;
+    color: #fff;
+    text-align: center;
+    padding: 50px 20px;
+    margin-bottom: 20px;
+}
+
+.blog-list-header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.blog-list-header p {
+    font-size: 1.2em;
+}
+
+
 .blog-container {
     max-width: 800px;
     margin: 0 auto;
@@ -30,7 +49,7 @@
 /* Link styling */
 .blog-link {
     font-size: 1.5em;
-    color: #4A90E2;
+    color: #A91D3A;
     text-decoration: none;
     transition: color 0.3s;
 }

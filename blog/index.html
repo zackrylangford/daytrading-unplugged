@@ -2,10 +2,14 @@
 layout: default
 title: Blog
 ---
-
+<div class="blog-list-header">
+  <h1>Blog</h1>
+  <p>Read the latest</p>
+</div>
 <div class="blog-container">
+
+
   <div class="blog-list">
-    <h1>{{ page.title }}</h1>
     <ul>
         {% for post in site.posts %}
         <li class="blog-item">

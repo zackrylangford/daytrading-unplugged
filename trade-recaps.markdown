@@ -3,9 +3,13 @@ layout: default
 title: Trade Recaps
 ---
 
+
+<div class="trade-recaps-header">
+    <h1>Trade Recaps</h1>
+</div>
+
 <div class="trade-recaps-container">
     <div class="trade-recaps-list">
-    <h1>{{ page.title }}</h1>
         <ul>
             {% assign trade_recaps = site.posts | where: "categories", "trade-recap" | sort: 'date' | reverse %}
             {% for post in trade_recaps %}

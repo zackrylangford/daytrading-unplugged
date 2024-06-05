@@ -1,4 +1,13 @@
 /* Container for the trade recaps page */
+
+.trade-recaps-header {
+    background: #151515;
+    color: #fff;
+    text-align: center;
+    padding: 50px 20px;
+    margin-bottom: 20px;
+}
+
 .trade-recaps-container {
     max-width: 800px;
     margin: 0 auto;
@@ -30,7 +39,7 @@
 /* Link styling */
 .trade-recap-link {
     font-size: 1.5em;
-    color: #4A90E2;
+    color: #A91D3A;
     text-decoration: none;
     transition: color 0.3s;
 }
