@@ -2,7 +2,10 @@
 layout: blog-post  
 title: "Emotional Trading: Mastering Your Mindset for Consistent Success"  
 date: 2024-06-05  
-categories: psychology  
+categories: psychology
+author:
+    name: Zack
+    image: "/assets/images/authors/zack.jpg"
 ---
 
 Trading can be a rollercoaster of emotions. One of the biggest challenges I’ve faced, and many others share, is controlling emotions while trading. Managing these emotions is crucial for consistent success in the market.
