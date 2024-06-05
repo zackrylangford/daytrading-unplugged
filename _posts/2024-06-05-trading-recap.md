@@ -22,7 +22,9 @@ After the last loss I clicked on the manual lockout button quickly and closed ev
 
 
 ### Trade 1: MCG (Micro GOLD)
-![Screenshot 1]({{ "/assets/images/trading-recaps/2024-06-05trade1.png" | relative_url }}){: .img-responsive}
+<a href="{{ "/assets/images/trading-recaps/2024-06-05trade1.png" | relative_url }}" data-lightbox="trade-images">
+  <img src="{{ "/assets/images/trading-recaps/2024-06-05trade1.png" | relative_url }}" alt="Screenshot 1" class="img-responsive">
+</a>
 - **Position**: Short (4 contracts)
 - **Entry**: 2355.90 (Slightly below R3)
 - **Original Stop**: 2360.50 (Break of long wicked high)
@@ -37,8 +39,9 @@ After the last loss I clicked on the manual lockout button quickly and closed ev
 
 
 ### Trade 1: MNQ (Micro Nasdaq)
-
-![Screenshot 1]({{ "/assets/images/trading-recaps/2024-06-05trade2.png" | relative_url }}){: .img-responsive}
+<a href="{{ "/assets/images/trading-recaps/2024-06-05trade2.png" | relative_url }}" data-lightbox="trade-images">
+  <img src="{{ "/assets/images/trading-recaps/2024-06-05trade2.png" | relative_url }}" alt="Screenshot 1" class="img-responsive">
+</a>
 - **Position**: Short (2 contracts)
 - **Entry**: 18,827.75 (Slightly below R4)
 - **Original Stop**: 18,857.50 (Break of HOD)
@@ -53,8 +56,9 @@ After the last loss I clicked on the manual lockout button quickly and closed ev
 
 
 ### Trade 1: MGC (Micro Gold)
-
-![Screenshot 1]({{ "/assets/images/trading-recaps/2024-06-05trade3.png" | relative_url }}){: .img-responsive}
+<a href="{{ "/assets/images/trading-recaps/2024-06-05trade3.png" | relative_url }}" data-lightbox="trade-images">
+  <img src="{{ "/assets/images/trading-recaps/2024-06-05trade3.png" | relative_url }}" alt="Screenshot 1" class="img-responsive">
+</a>
 
 - **Position**: Short (3 contracts)
 - **Entry**: 2,356.60 (After loss of R3 and continued selling volume)
