@@ -1,23 +1,40 @@
 ---
-layout: blog-post
-title:  "Emotional Trading"
-date:   2024-06-05
-categories: psychology
+layout: blog-post  
+title: "Emotional Trading"  
+date: 2024-06-05  
+categories: psychology  
 ---
 
+One of the biggest challenges I’ve faced in trading, which I believe many others share, is controlling emotions while trading.
 
-I think the biggest challenge that I have faced with trading, and I think many others can say the same is the challenge of controlling one's emotions while trading. 
+The market is inherently unpredictable, making it impossible to predict with 100 percent accuracy. Even maintaining a win rate better than 50 percent over a consistent period is considered successful.
 
-The market is not rational in a way that can be predicted with 100 percent accuracy. I mean, even having a better than 50 percent win rate over a consistent period of time is great. 
+The key to managing emotions in trading is having a reliable system and sticking to it. Making decisions based on a well-thought-out system rather than on emotions is crucial.
 
-The key is having a system that you are able to stick to when you are trading, so that you are making your decisions on that system over your emotions. 
+As an intuitive/feeler personality type, I often rely on my gut feelings instead of logic, which can lead to problems. Without control, I might take trades I shouldn’t, engage in revenge trading, and make poor risk management decisions. These behaviors often result in high-risk/low-reward trades and losing days.
 
-For someone who is more of an intuitive/feeler type personality, this is incredibly hard. I have the tendency to make decisions based more on a "gut" feeling instead of my logic and head. This causes me a lot of problems if I don't have it in check. I will take trades that I shouldn't take and I will revenge trade and make poor decisions with risk management, choosing to make high risk/low reward trades that often lead to losing trades and losing days. 
+Implementing tips and tricks to manage emotions while trading is easier said than done. For example, taking a break after a losing trade is tough when it feels like the trade was correct or started working after hitting the stop loss.
 
-I know there are tons of tips and tricks to combat this, but I have found that it is really hard to implement those rules when you are trading. For instance, the idea that you should walk away and take a break after losing a trade is hard when you feel like the trade you took is correct or is working out after hitting your stop loss. 
+Red days are particularly challenging for me. I struggle with stopping trading when I’m losing, especially early in the morning. Despite having rules in place, my emotions often overpower my self-discipline.
 
-I have a really hard time with a red day. I hate stopping my trading when I have a losing day. Especially early in the morning. I have rules that I try to stick to, but my emotions often overwhelm me when I actually have to have the self-discipline to implement them. 
+To address this, I’m developing a playbook and strategy to guide my trades. Instead of focusing on controlling my emotions, my primary rule is to only take trades from my playbook and let that guide my decisions.
 
-I think the key for me in this attempt has been that I am developing a playbook and strategy that is guiding my trades. I am not even focusing on creating rules to control my emotions. I guess my rule would be that I am doing my best to take trades only out of my playbook and allowing that to guide my trading. 
+Additionally, I’ve set a max win and loss amount that shuts down my account if either is hit. This measure is entirely automated, removing it from my control and helping to manage my trading behavior.
 
-Also, I do have a max win amount as well as a max loss amount that shuts my account if I hit either one. That is completely out of my hands though, so that is good. 
+### Application Points
+
+To help manage your emotions while trading, consider these application points:
+
+1. **Develop a Trading Plan**: Create a detailed playbook or strategy that outlines your trading approach. Stick to this plan to guide your decisions.
+
+2. **Set Automated Limits**: Implement automated max win and loss limits to protect your account from emotional decision-making.
+
+3. **Practice Discipline**: Establish rules for when to take breaks, especially after losing trades, and commit to following them.
+
+4. **Reflect on Trades**: After each trading session, review your trades to understand what worked and what didn’t. This can help reinforce good habits and identify emotional triggers.
+
+5. **Stay Educated**: Continuously educate yourself about trading strategies and psychology to improve your skills and emotional control.
+
+6. **Seek Support**: Consider joining trading communities or seeking mentorship to gain insights and support from other traders who face similar challenges.
+
+By applying these points, you can work towards more disciplined and emotion-free trading, ultimately improving your overall trading performance.
