@@ -1,0 +1,56 @@
+.hero {
+    position: relative;
+    background-image: url('/camarilla-futures/assets/images/design/stonks.png');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+    align-items: center;
+    color: white;
+    text-align: left; /* Align text to the left */
+    padding-left: 20px; /* Add some padding to the left */
+}
+
+.hero-text {
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80%; /* Limit the width of the text container */
+}
+
+.hero h1 {
+    font-size: 5em; /* Increase font size */
+    margin: 0;
+    font-family: "Ubuntu Sans Mono", monospace;
+    font-optical-sizing: auto;
+}
+
+.hero p {
+    font-size: 2em; /* Increase font size */
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        justify-content: center; /* Center content horizontally */
+        align-items: center; /* Center content vertically */
+        text-align: center;
+        padding-left: 0; /* Remove left padding */
+    }
+
+    .hero-text {
+        background: rgba(0, 0, 0, 0.7); /* Darker semi-transparent background on mobile */
+        max-width: 90%; /* Slightly wider on mobile for better readability */
+        padding: 10px; /* Adjust padding for smaller screens */
+        justify-content: center;
+        text-align: center; /* Center text within the container */
+    }
+
+    .hero h1 {
+        font-size: 3em; /* Decrease font size for mobile */
+    }
+
+    .hero p {
+        font-size: 1.5em; /* Decrease font size for mobile */
+    }
+}
