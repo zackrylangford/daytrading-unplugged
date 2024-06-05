@@ -1,11 +1,31 @@
 ---
-layout: blog-post
+layout: strategy
 title:  "R3/S3 Camarilla Strategy"
 date:   2024-06-04
 categories: strategy
+strategy:
+  title: "R3/S3 Camarilla Play"
+  entry_points:
+    - "Buy at S3"
+    - "Sell at R3"
+  exit_points:
+    - "Sell at R1, R2, R3 for long positions"
+    - "Buy at S1, S2, S3 for short positions"
+  risk_management:
+    - "Place stop-loss beyond S3/R3"
+    - "Proper position sizing"
+    - "Set realistic profit targets - look for Moving Averages, VWAP, HOD/LOD, other Cam points." 
+  example:
+    high: 150
+    low: 140
+    close: 145
+    r3: 147.75
+    s3: 142.25
 ---
 
-# R3/S3 Camarilla Strategy
+## Overview of Strategy
+
+One of my favorite strategies is to trade the R3/S3 Camarilla Pivot points. It's a really simple strategy to trade and has been my most successful trading play, which is why it's the first one on my list.
 
 The Camarilla pivot point strategy is a popular technique among traders to predict price movements in the financial markets. This strategy relies on a series of support and resistance levels, with a specific focus on the S3 (third support level) and R3 (third resistance level). The simplicity and effectiveness of this strategy make it a go-to for many traders.
 
@@ -22,7 +42,7 @@ The formula for calculating Camarilla pivot points is based on the previous day'
 
 ## The R3/S3 Strategy
 
-### Overview
+### Trade Play
 
 The R3/S3 strategy is straightforward: you look to buy at the S3 level and sell at the R3 level. This method is based on the assumption that prices are likely to reverse when they hit these levels, making them ideal points to enter and exit trades.
 
@@ -53,7 +73,6 @@ The R3/S3 strategy is straightforward: you look to buy at the S3 level and sell 
     - If you sold at R3, look to buy back at key levels on the way down.
     - You can use R2, R1, S1, S2, and finally S3 as exit points.
     - It can also be effective to have other levels such as moving averages and VWAP levels to target for exits.
-
 
 ### Risk Management
 

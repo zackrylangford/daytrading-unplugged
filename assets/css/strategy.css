@@ -1,0 +1,36 @@
+.strategy-card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.strategy-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.strategy-card h2 {
+    margin-top: 0;
+    color: #2c3e50; /* Dark blue color */
+    font-size: 1.75em;
+    border-bottom: 2px solid #A91D3A; /* Bottom border */
+    padding-bottom: 10px;
+}
+
+.strategy-card ul {
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.strategy-card li {
+    margin-bottom: 10px;
+    color: #34495e; /* Darker blue for list items */
+}
+
+.strategy-card p {
+    margin: 10px 0;
+    color: #34495e; /* Darker blue for paragraphs */
+}

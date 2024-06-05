@@ -1,0 +1,50 @@
+---
+layout: default
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/blog-post.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/strategy.css' | relative_url }}">
+</head>
+
+<body>
+  <main class="container">
+    <article class="blog-post">
+    {% if page.strategy %}
+    <div class="strategy-card">
+        <h2>{{ page.strategy.title }}</h2>
+        <p><strong>Entry Points:</strong></p>
+        <ul>
+            {% for entry in page.strategy.entry_points %}
+                <li>{{ entry }}</li>
+            {% endfor %}
+        </ul>
+        <p><strong>Exit Points:</strong></p>
+        <ul>
+            {% for exit in page.strategy.exit_points %}
+                <li>{{ exit }}</li>
+            {% endfor %}
+        </ul>
+        <p><strong>Risk Management:</strong></p>
+        <ul>
+            {% for risk in page.strategy.risk_management %}
+                <li>{{ risk }}</li>
+            {% endfor %}
+        </ul>
+        <p><strong>Example:</strong></p>
+        <p>High: {{ page.strategy.example.high }}, Low: {{ page.strategy.example.low }}, Close: {{ page.strategy.example.close }}</p>
+        <p>R3: {{ page.strategy.example.r3 }}, S3: {{ page.strategy.example.s3 }}</p>
+    </div>
+    {% endif %}
+</article>
+    <article class="blog-post">
+      {{ content }}
+    </article>
+  </main>
+</body>
+</html>
