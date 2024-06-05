@@ -21,7 +21,7 @@
 title: Day Trading Unplugged
 email: zack@cloudzack.com
 description: "Authentic insights into Day Trading"
-baseurl: "/" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://daytradingunplugged.com" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
