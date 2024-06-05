@@ -9,7 +9,7 @@
     align-items: center;
     color: white;
     text-align: left; /* Align text to the left */
-    padding-left: 20px; /* Add some padding to the left */
+    padding-left: 230px; /* Add some padding to the left */
 }
 
 .hero-text {
@@ -19,18 +19,18 @@
 }
 
 .hero h1 {
-    font-size: 5em; /* Increase font size */
+    font-size: 5em;
     margin: 0;
     font-family: "Ubuntu Sans Mono", monospace;
-    font-optical-sizing: auto;
+    font-optical-sizing: auto; 
 }
 
 .hero p {
-    font-size: 2em; /* Increase font size */
+    font-size: 1em; /* Increase font size */
     margin: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .hero {
         justify-content: center; /* Center content horizontally */
         align-items: center; /* Center content vertically */
@@ -47,10 +47,10 @@
     }
 
     .hero h1 {
-        font-size: 3em; /* Decrease font size for mobile */
+        font-size: 3.5em; /* Decrease font size for mobile */
     }
 
     .hero p {
-        font-size: 1.5em; /* Decrease font size for mobile */
+        font-size: 1em; /* Decrease font size for mobile */
     }
 }
