@@ -12,7 +12,7 @@ categories: trade-recap
 Took my first trade on MGC (Micro Gold) as volume came in around R3. Looked like it was struggling at this level so I went short with a stop above R3. Was able to get a decent entry but buyers came in and pushed it above R3. I moved my stop up as it looked pretty clear that it was going to grind higher. 
 
 
-**Total P/L**: 
+**Total P/L**: -$148.16
 
 
 ### Trade 1: MCG (Micro GOLD)
