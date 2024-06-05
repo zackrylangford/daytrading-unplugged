@@ -26,7 +26,10 @@ title: Camarilla Futures
 
     <div class="main-content">
     <h2>Latest Post</h2>
+    <hr>
         {% assign latest_post = site.posts | sort: 'date' | last %}
+        <h2>{{ latest_post.title }}</h2>
+        <p><i>{{ latest_post.date | date: "%B %d, %Y" }}</i>
         <p>{{ latest_post.content }}</p>
     </div>
 </div>
