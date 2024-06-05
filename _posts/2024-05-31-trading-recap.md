@@ -3,9 +3,10 @@ layout: blog-post
 title:  "Trading Recap - Friday, May 31, 2024"
 date:   2024-05-31
 categories: trade-recap
+author:
+    name: Zack
+    image: "/assets/images/authors/zack.jpg"
 ---
-
-## Trading Recap - May 31, 2024
 
 ### Overview
 Gold really played well off of the Camarilla points today. Just needed to be a little more patient. Here is a 5 minute chart with my levels:

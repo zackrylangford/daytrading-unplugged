@@ -3,10 +3,10 @@ layout: blog-post
 title:  "Trading Recap - Tuesday, June 4, 2024"
 date:   2024-06-04
 categories: trade-recap
+author:
+    name: Zack
+    image: "/assets/images/authors/zack.jpg"
 ---
-
-## Trading Recap - Tuesday, June 4, 2024
-
 ### Overview
 
 Started the day off well with a nice little scalp on Micro Gold. Will continue to monitor throughout the day and see what is going. Took a trade on MES and got lucky on the pop back up. This one looks choppy, so I am glad I got out when I did. My silver trade was garbage though. Should not have taken it. It looks like it may go my way but I was way too overanxious and impatient with it. Just need to relax. 

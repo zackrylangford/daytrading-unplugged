@@ -3,6 +3,9 @@ layout: blog-post
 title: "Camarilla Pivot Points Script for thinkorswim"
 date: 2024-06-02
 categories: [downloads]
+author:
+    name: Zack
+    image: "/assets/images/authors/zack.jpg"
 ---
 
 ## Camarilla Pivot Points Script for thinkorswim
