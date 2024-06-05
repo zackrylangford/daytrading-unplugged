@@ -15,11 +15,14 @@
     border: 1px solid #ddd;
     border-radius: 10px;
     overflow: hidden;
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
 }
 
 .featured-post img {
     width: 100%;
     height: auto;
+    display: none; /* Hide images since they are not available */
 }
 
 .featured-post-text {
@@ -29,9 +32,35 @@
 .featured-post-text h3 {
     margin: 0;
     font-size: 1.5em;
+    color: #fff; /* White text */
 }
 
 .featured-post-text p {
     font-size: 1em;
-    color: #555;
+    color: #fff; /* White text */
+}
+
+.featured-post-text a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.featured-post-text a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .featured-post {
+        flex: 1 1 100%; /* Make cards take full width on mobile */
+        margin-bottom: 1rem; /* Add some margin at the bottom */
+    }
+    
+    .featured-post img {
+        display: none; /* Ensure images are hidden on mobile */
+    }
+
+    .featured-post-text {
+        padding: 1rem; /* Adjust padding if necessary */
+    }
 }
