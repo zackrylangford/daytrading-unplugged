@@ -5,8 +5,8 @@ permalink: /playbook/
 ---
 
 <div class="playbook-header">
-    <h1>Trading Strategies Playbook</h1>
-    <p>Welcome to Zack's Trading Strategies Playbook. Here you'll find all the strategies I use for trading futures.</p>
+    <h1>Zack's Futures Playbook</h1>
+    <p>Here are my strategies for trading futures.</p>
 </div>
 
 <div class="playbook-content">
