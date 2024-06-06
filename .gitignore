@@ -8,3 +8,4 @@ python/latest_trades.csv
 python/aggregated_trades.csv
 python/.~lock.aggregated_trades.csv#
 python/trade_summary_report.docx
+python/trade_summary_report.md

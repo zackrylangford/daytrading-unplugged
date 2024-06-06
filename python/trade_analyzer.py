@@ -1,7 +1,6 @@
 import pandas as pd
 from collections import defaultdict
 import pytz
-from docx import Document
 
 # Load the CSV file
 df = pd.read_csv('latest_trades.csv')
@@ -56,9 +55,8 @@ aggregated_df = aggregated_df.sort_values(by='EnteredAt', ascending=False)
 # Write the results to a new CSV file
 aggregated_df.to_csv('aggregated_trades.csv', index=False)
 
-# Create a Word document
-doc = Document()
-doc.add_heading('Trade Summary Report', level=1)
+# Create a Markdown document
+markdown_content = "# Trade Summary Report\n"
 
 # Generate a summary report for each trading day with detailed trades listed
 for custom_trade_day, group in aggregated_df.groupby('CustomTradeDay'):
@@ -67,29 +65,31 @@ for custom_trade_day, group in aggregated_df.groupby('CustomTradeDay'):
     num_trades = len(group)
     net_total = total_pnl - total_fees
     
-    doc.add_heading(f"Trading Day: {custom_trade_day}", level=2)
-    doc.add_paragraph(f"Total PnL: {total_pnl:.2f}")
-    doc.add_paragraph(f"Total Fees: {total_fees:.2f}")
-    doc.add_paragraph(f"Number of Trades: {num_trades}")
-    doc.add_paragraph(f"Net Total: {net_total:.2f}")
+    markdown_content += f"## Trading Day: {custom_trade_day}\n"
+    markdown_content += f"- **Total PnL:** {total_pnl:.2f}\n"
+    markdown_content += f"- **Total Fees:** {total_fees:.2f}\n"
+    markdown_content += f"- **Number of Trades:** {num_trades}\n"
+    markdown_content += f"- **Net Total:** {net_total:.2f}\n"
+    markdown_content += "\n"
     
     # List detailed trades for the day
     for _, trade in group.iterrows():
         entered_time = trade['EnteredAt'].strftime('%H%M')
         exited_time = trade['ExitedAt'].strftime('%H%M')
         trade_details = (
-            f"EnteredAt: {entered_time}, ExitedAt: {exited_time}, "
+            f"- EnteredAt: {entered_time}, ExitedAt: {exited_time}, "
             f"EntryPrice: {trade['EntryPrice']:.2f}, ExitPrice: {trade['ExitPrice']:.2f}, "
             f"Size: {trade['TotalSize']}, Fees: {trade['TotalFees']:.2f}, "
             f"PnL: {trade['TotalPnL']:.2f}, Net: {trade['TotalPnL'] - trade['TotalFees']:.2f}, "
             f"Type: {trade['Type']}"
         )
-        doc.add_paragraph(trade_details)
+        markdown_content += trade_details + "\n"
     
-    doc.add_paragraph("-" * 40)
+    markdown_content += "\n" + "-" * 40 + "\n\n"
 
-# Save the document
-doc.save('trade_summary_report.docx')
+# Save the Markdown document
+with open('trade_summary_report.md', 'w') as f:
+    f.write(markdown_content)
 
 # Print the summary reports to the terminal
 for custom_trade_day, group in aggregated_df.groupby('CustomTradeDay'):
