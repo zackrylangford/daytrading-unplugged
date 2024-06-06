@@ -3,3 +3,7 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
+.venv
+python/latest_trades.csv
+python/aggregated_trades.csv
+python/.~lock.aggregated_trades.csv#
