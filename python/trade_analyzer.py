@@ -74,8 +74,8 @@ for custom_trade_day, group in aggregated_df.groupby('CustomTradeDay'):
     
     # List detailed trades for the day
     for _, trade in group.iterrows():
-        entered_time = trade['EnteredAt'].strftime('%H%M')
-        exited_time = trade['ExitedAt'].strftime('%H%M')
+        entered_time = trade['EnteredAt'].strftime('%I:%M %p (ET)')
+        exited_time = trade['ExitedAt'].strftime('%I:%M %p (ET)')
         trade_details = (
             f"- EnteredAt: {entered_time}, ExitedAt: {exited_time}, "
             f"EntryPrice: {trade['EntryPrice']:.2f}, ExitPrice: {trade['ExitPrice']:.2f}, "
@@ -107,8 +107,8 @@ for custom_trade_day, group in aggregated_df.groupby('CustomTradeDay'):
     
     # List detailed trades for the day
     for _, trade in group.iterrows():
-        entered_time = trade['EnteredAt'].strftime('%H%M')
-        exited_time = trade['ExitedAt'].strftime('%H%M')
+        entered_time = trade['EnteredAt'].strftime('%I:%M %p (ET)')
+        exited_time = trade['ExitedAt'].strftime('%I:%M %p (ET)')
         trade_details = (
             f"EnteredAt: {entered_time}, ExitedAt: {exited_time}, "
             f"EntryPrice: {trade['EntryPrice']:.2f}, ExitPrice: {trade['ExitPrice']:.2f}, "
