@@ -52,71 +52,29 @@ aggregated_df = grouped.apply(aggregate_trades).reset_index(drop=True)
 # Sort the aggregated DataFrame by EnteredAt date from most recent to earliest
 aggregated_df = aggregated_df.sort_values(by='EnteredAt', ascending=False)
 
-# Write the results to a new CSV file
-aggregated_df.to_csv('aggregated_trades.csv', index=False)
+# Generate the HTML table content
+html_content = "<table class=\"trade-table\">\n"
+html_content += "<thead>\n"
+html_content += "<tr><th>Entered At</th><th>Exited At</th><th>Entry Price</th><th>Exit Price</th><th>Size</th><th>Fees</th><th>PnL</th><th>Net</th><th>Type</th></tr>\n"
+html_content += "</thead>\n"
+html_content += "<tbody>\n"
 
-# Create a Markdown document
-markdown_content = "# Trade Summary Report\n"
+for _, trade in aggregated_df.iterrows():
+    entered_time = trade['EnteredAt'].strftime('%I:%M %p (ET)')
+    exited_time = trade['ExitedAt'].strftime('%I:%M %p (ET)')
+    trade_details = (
+        f"<tr><td>{entered_time}</td><td>{exited_time}</td><td>{trade['EntryPrice']:.2f}</td><td>{trade['ExitPrice']:.2f}</td>"
+        f"<td>{trade['TotalSize']}</td><td>{trade['TotalFees']:.2f}</td><td>{trade['TotalPnL']:.2f}</td>"
+        f"<td>{trade['TotalPnL'] - trade['TotalFees']:.2f}</td><td>{trade['Type']}</td></tr>"
+    )
+    html_content += trade_details + "\n"
 
-# Generate a summary report for each trading day with detailed trades listed
-for custom_trade_day, group in aggregated_df.groupby('CustomTradeDay'):
-    total_pnl = group['TotalPnL'].sum()
-    total_fees = group['TotalFees'].sum()
-    num_trades = len(group)
-    net_total = total_pnl - total_fees
-    
-    markdown_content += f"## Trading Day: {custom_trade_day}\n"
-    markdown_content += f"- **Total PnL:** {total_pnl:.2f}\n"
-    markdown_content += f"- **Total Fees:** {total_fees:.2f}\n"
-    markdown_content += f"- **Number of Trades:** {num_trades}\n"
-    markdown_content += f"- **Net Total:** {net_total:.2f}\n"
-    markdown_content += "\n"
-    
-    # List detailed trades for the day
-    for _, trade in group.iterrows():
-        entered_time = trade['EnteredAt'].strftime('%I:%M %p (ET)')
-        exited_time = trade['ExitedAt'].strftime('%I:%M %p (ET)')
-        trade_details = (
-            f"- EnteredAt: {entered_time}, ExitedAt: {exited_time}, "
-            f"EntryPrice: {trade['EntryPrice']:.2f}, ExitPrice: {trade['ExitPrice']:.2f}, "
-            f"Size: {trade['TotalSize']}, Fees: {trade['TotalFees']:.2f}, "
-            f"PnL: {trade['TotalPnL']:.2f}, Net: {trade['TotalPnL'] - trade['TotalFees']:.2f}, "
-            f"Type: {trade['Type']}"
-        )
-        markdown_content += trade_details + "\n"
-    
-    markdown_content += "\n" + "-" * 40 + "\n\n"
+html_content += "</tbody>\n"
+html_content += "</table>\n"
 
-# Save the Markdown document
-with open('trade_summary_report.md', 'w') as f:
-    f.write(markdown_content)
+# Save the HTML content to a file
+with open('trade_summary_table.html', 'w') as f:
+    f.write(html_content)
 
-# Print the summary reports to the terminal
-for custom_trade_day, group in aggregated_df.groupby('CustomTradeDay'):
-    total_pnl = group['TotalPnL'].sum()
-    total_fees = group['TotalFees'].sum()
-    num_trades = len(group)
-    net_total = total_pnl - total_fees
-    
-    report = f"Trading Day: {custom_trade_day}\n"
-    report += f"Total PnL: {total_pnl:.2f}\n"
-    report += f"Total Fees: {total_fees:.2f}\n"
-    report += f"Number of Trades: {num_trades}\n"
-    report += f"Net Total: {net_total:.2f}\n"
-    report += "-" * 40 + "\n"
-    
-    # List detailed trades for the day
-    for _, trade in group.iterrows():
-        entered_time = trade['EnteredAt'].strftime('%I:%M %p (ET)')
-        exited_time = trade['ExitedAt'].strftime('%I:%M %p (ET)')
-        trade_details = (
-            f"EnteredAt: {entered_time}, ExitedAt: {exited_time}, "
-            f"EntryPrice: {trade['EntryPrice']:.2f}, ExitPrice: {trade['ExitPrice']:.2f}, "
-            f"Size: {trade['TotalSize']}, Fees: {trade['TotalFees']:.2f}, "
-            f"PnL: {trade['TotalPnL']:.2f}, Net: {trade['TotalPnL'] - trade['TotalFees']:.2f}, "
-            f"Type: {trade['Type']}"
-        )
-        report += trade_details + "\n"
-    
-    report += "-" * 40 + "\n"
-    print(report)
+# Print the HTML table to the terminal
+print(html_content)
