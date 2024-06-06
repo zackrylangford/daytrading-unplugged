@@ -1,6 +1,7 @@
 import pandas as pd
 from collections import defaultdict
 import pytz
+from docx import Document
 
 # Load the CSV file
 df = pd.read_csv('latest_trades.csv')
@@ -55,9 +56,41 @@ aggregated_df = aggregated_df.sort_values(by='EnteredAt', ascending=False)
 # Write the results to a new CSV file
 aggregated_df.to_csv('aggregated_trades.csv', index=False)
 
-# Generate a summary report for each trading day with detailed trades listed
-summary_reports = []
+# Create a Word document
+doc = Document()
+doc.add_heading('Trade Summary Report', level=1)
 
+# Generate a summary report for each trading day with detailed trades listed
+for custom_trade_day, group in aggregated_df.groupby('CustomTradeDay'):
+    total_pnl = group['TotalPnL'].sum()
+    total_fees = group['TotalFees'].sum()
+    num_trades = len(group)
+    avg_entry_price = group['EntryPrice'].mean()
+    avg_exit_price = group['ExitPrice'].mean()
+    
+    doc.add_heading(f"Trading Day: {custom_trade_day}", level=2)
+    doc.add_paragraph(f"Total PnL: {total_pnl:.2f}")
+    doc.add_paragraph(f"Total Fees: {total_fees:.2f}")
+    doc.add_paragraph(f"Number of Trades: {num_trades}")
+    doc.add_paragraph(f"Average Entry Price: {avg_entry_price:.2f}")
+    doc.add_paragraph(f"Average Exit Price: {avg_exit_price:.2f}")
+    
+    # List detailed trades for the day
+    for _, trade in group.iterrows():
+        trade_details = (
+            f"EnteredAt: {trade['EnteredAt']}, ExitedAt: {trade['ExitedAt']}, "
+            f"EntryPrice: {trade['EntryPrice']:.2f}, ExitPrice: {trade['ExitPrice']:.2f}, "
+            f"Size: {trade['TotalSize']}, Fees: {trade['TotalFees']:.2f}, "
+            f"PnL: {trade['TotalPnL']:.2f}, Type: {trade['Type']}"
+        )
+        doc.add_paragraph(trade_details)
+    
+    doc.add_paragraph("-" * 40)
+
+# Save the document
+doc.save('trade_summary_report.docx')
+
+# Print the summary reports to the terminal
 for custom_trade_day, group in aggregated_df.groupby('CustomTradeDay'):
     total_pnl = group['TotalPnL'].sum()
     total_fees = group['TotalFees'].sum()
@@ -84,8 +117,4 @@ for custom_trade_day, group in aggregated_df.groupby('CustomTradeDay'):
         report += trade_details + "\n"
     
     report += "-" * 40 + "\n"
-    summary_reports.append(report)
-
-# Print the summary reports to the terminal
-for report in summary_reports:
     print(report)
