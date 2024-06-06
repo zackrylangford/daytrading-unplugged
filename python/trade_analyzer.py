@@ -65,23 +65,24 @@ for custom_trade_day, group in aggregated_df.groupby('CustomTradeDay'):
     total_pnl = group['TotalPnL'].sum()
     total_fees = group['TotalFees'].sum()
     num_trades = len(group)
-    avg_entry_price = group['EntryPrice'].mean()
-    avg_exit_price = group['ExitPrice'].mean()
+    net_total = total_pnl - total_fees
     
     doc.add_heading(f"Trading Day: {custom_trade_day}", level=2)
     doc.add_paragraph(f"Total PnL: {total_pnl:.2f}")
     doc.add_paragraph(f"Total Fees: {total_fees:.2f}")
     doc.add_paragraph(f"Number of Trades: {num_trades}")
-    doc.add_paragraph(f"Average Entry Price: {avg_entry_price:.2f}")
-    doc.add_paragraph(f"Average Exit Price: {avg_exit_price:.2f}")
+    doc.add_paragraph(f"Net Total: {net_total:.2f}")
     
     # List detailed trades for the day
     for _, trade in group.iterrows():
+        entered_time = trade['EnteredAt'].strftime('%H%M')
+        exited_time = trade['ExitedAt'].strftime('%H%M')
         trade_details = (
-            f"EnteredAt: {trade['EnteredAt']}, ExitedAt: {trade['ExitedAt']}, "
+            f"EnteredAt: {entered_time}, ExitedAt: {exited_time}, "
             f"EntryPrice: {trade['EntryPrice']:.2f}, ExitPrice: {trade['ExitPrice']:.2f}, "
             f"Size: {trade['TotalSize']}, Fees: {trade['TotalFees']:.2f}, "
-            f"PnL: {trade['TotalPnL']:.2f}, Type: {trade['Type']}"
+            f"PnL: {trade['TotalPnL']:.2f}, Net: {trade['TotalPnL'] - trade['TotalFees']:.2f}, "
+            f"Type: {trade['Type']}"
         )
         doc.add_paragraph(trade_details)
     
@@ -95,24 +96,25 @@ for custom_trade_day, group in aggregated_df.groupby('CustomTradeDay'):
     total_pnl = group['TotalPnL'].sum()
     total_fees = group['TotalFees'].sum()
     num_trades = len(group)
-    avg_entry_price = group['EntryPrice'].mean()
-    avg_exit_price = group['ExitPrice'].mean()
+    net_total = total_pnl - total_fees
     
     report = f"Trading Day: {custom_trade_day}\n"
     report += f"Total PnL: {total_pnl:.2f}\n"
     report += f"Total Fees: {total_fees:.2f}\n"
     report += f"Number of Trades: {num_trades}\n"
-    report += f"Average Entry Price: {avg_entry_price:.2f}\n"
-    report += f"Average Exit Price: {avg_exit_price:.2f}\n"
+    report += f"Net Total: {net_total:.2f}\n"
     report += "-" * 40 + "\n"
     
     # List detailed trades for the day
     for _, trade in group.iterrows():
+        entered_time = trade['EnteredAt'].strftime('%H%M')
+        exited_time = trade['ExitedAt'].strftime('%H%M')
         trade_details = (
-            f"EnteredAt: {trade['EnteredAt']}, ExitedAt: {trade['ExitedAt']}, "
+            f"EnteredAt: {entered_time}, ExitedAt: {exited_time}, "
             f"EntryPrice: {trade['EntryPrice']:.2f}, ExitPrice: {trade['ExitPrice']:.2f}, "
             f"Size: {trade['TotalSize']}, Fees: {trade['TotalFees']:.2f}, "
-            f"PnL: {trade['TotalPnL']:.2f}, Type: {trade['Type']}"
+            f"PnL: {trade['TotalPnL']:.2f}, Net: {trade['TotalPnL'] - trade['TotalFees']:.2f}, "
+            f"Type: {trade['Type']}"
         )
         report += trade_details + "\n"
     
