@@ -17,16 +17,38 @@ function fetchTradeData(tradeDate, placeholderId, apiEndpoint) {
       // Sort trades from earliest to latest
       trades.sort((a, b) => new Date(a.EnteredAt) - new Date(b.EnteredAt));
       
-      // Calculate total net PnL
+      // Initialize variables for calculations
       let totalNetPnL = 0;
+      let totalWinningPnL = 0;
+      let totalLosingPnL = 0;
+      let numWinningTrades = 0;
+      let numLosingTrades = 0;
 
       trades.forEach(trade => {
         const netPnL = parseFloat(trade.TotalPnL) - parseFloat(trade.TotalFees);
         totalNetPnL += netPnL;
+
+        if (netPnL >= 0) {
+          totalWinningPnL += netPnL;
+          numWinningTrades += 1;
+        } else {
+          totalLosingPnL += netPnL;
+          numLosingTrades += 1;
+        }
       });
 
+      // Calculate averages and reward to risk ratio
+      const avgWinningTrade = numWinningTrades > 0 ? (totalWinningPnL / numWinningTrades).toFixed(2) : 0;
+      const avgLosingTrade = numLosingTrades > 0 ? (totalLosingPnL / numLosingTrades).toFixed(2) : 0;
+      const rewardToRiskRatio = numWinningTrades > 0 && numLosingTrades > 0 ? (avgWinningTrade / Math.abs(avgLosingTrade)).toFixed(2) : 0;
+
       // Create table HTML
-      let tableHTML = `<p><strong>Total Net PnL: ${totalNetPnL.toFixed(2)}</strong></p>`;
+      let tableHTML = `
+        <p><strong>Total Net PnL: ${totalNetPnL.toFixed(2)}</strong></p>
+        <p><strong>Average Winning Trade: ${avgWinningTrade}</strong></p>
+        <p><strong>Average Losing Trade: ${avgLosingTrade}</strong></p>
+        <p><strong>Reward to Risk Ratio: ${rewardToRiskRatio}</strong></p>
+      `;
       tableHTML += '<table class="trade-table">';
       tableHTML += `
         <thead>
