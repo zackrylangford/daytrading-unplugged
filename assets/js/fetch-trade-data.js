@@ -56,17 +56,17 @@ function fetchTradeData(tradeDate, placeholderId, apiEndpoint) {
 
         tableHTML += `
           <tr class="${wlClass}">
-            <td>${enteredAt} (ET)</td>
-            <td>${exitedAt} (ET)</td>
-            <td>${parseFloat(trade.EntryPrice).toFixed(2)}</td>
-            <td>${parseFloat(trade.ExitPrice).toFixed(2)}</td>
-            <td>${trade.TotalSize}</td>
-            <td>${parseFloat(trade.TotalFees).toFixed(2)}</td>
-            <td>${parseFloat(trade.TotalPnL).toFixed(2)}</td>
-            <td>${netPnL.toFixed(2)}</td>
-            <td>${trade.Type}</td>
-            <td>${trade.FullContractName}</td>
-            <td>${wlText}</td>
+            <td data-label="Entered At">${enteredAt} (ET)</td>
+            <td data-label="Exited At">${exitedAt} (ET)</td>
+            <td data-label="Entry Price">${parseFloat(trade.EntryPrice).toFixed(2)}</td>
+            <td data-label="Exit Price">${parseFloat(trade.ExitPrice).toFixed(2)}</td>
+            <td data-label="Size">${trade.TotalSize}</td>
+            <td data-label="Fees">${parseFloat(trade.TotalFees).toFixed(2)}</td>
+            <td data-label="PnL">${parseFloat(trade.TotalPnL).toFixed(2)}</td>
+            <td data-label="Net">${netPnL.toFixed(2)}</td>
+            <td data-label="Type">${trade.Type}</td>
+            <td data-label="Contract">${trade.FullContractName}</td>
+            <td data-label="W/L">${wlText}</td>
           </tr>
         `;
       });

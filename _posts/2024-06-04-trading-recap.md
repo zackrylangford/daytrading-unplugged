@@ -72,3 +72,16 @@ Started the day off well with a nice little scalp on Micro Gold. Will continue t
 **Total P/L**: +$255.79
 ![Screenshot 1]({{ "/assets/images/trading-recaps/2024-06-04pnl.png" | relative_url }}){: .img-responsive}
 ---
+
+
+### Trade Data
+
+<div id="trade-table-placeholder">Loading trade data...</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const tradeDate = "2024-06-04";  // Replace with the date of the trades you want to display
+    const apiEndpoint = "https://x6vqzeow7a.execute-api.us-east-1.amazonaws.com/default/get-trade-recaps";
+    fetchTradeData(tradeDate, 'trade-table-placeholder', apiEndpoint);
+  });
+</script>

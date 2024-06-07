@@ -27,3 +27,42 @@
 .trade-table .loss {
   background-color: #f8d7da;
 }
+
+@media screen and (max-width: 768px) {
+  .trade-table th:nth-child(3), .trade-table td:nth-child(3), /* Entry Price */
+  .trade-table th:nth-child(4), .trade-table td:nth-child(4), /* Exit Price */
+  .trade-table th:nth-child(6), .trade-table td:nth-child(6), /* Fees */
+  .trade-table th:nth-child(7), .trade-table td:nth-child(7) { /* PnL */
+    display: none;
+  }
+
+  .trade-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .trade-table thead {
+    display: none;
+  }
+
+  .trade-table tbody tr {
+    display: block;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+  }
+
+  .trade-table tbody td {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .trade-table tbody td::before {
+    content: attr(data-label);
+    flex: 1;
+    font-weight: bold;
+  }
+}

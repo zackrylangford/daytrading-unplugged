@@ -73,3 +73,16 @@ After the last loss I clicked on the manual lockout button quickly and closed ev
 
 **Total P/L**: -$388.76
 ![Screenshot 1]({{ "/assets/images/trading-recaps/2024-06-05pnl.png" | relative_url }}){: .img-responsive}
+
+
+### Trade Data
+
+<div id="trade-table-placeholder">Loading trade data...</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const tradeDate = "2024-06-05";  // Replace with the date of the trades you want to display
+    const apiEndpoint = "https://x6vqzeow7a.execute-api.us-east-1.amazonaws.com/default/get-trade-recaps";
+    fetchTradeData(tradeDate, 'trade-table-placeholder', apiEndpoint);
+  });
+</script>
