@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="{{ '/assets/css/blog-post.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/hero.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/featured-posts.css' | relative_url }}">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
@@ -20,7 +19,8 @@
     <header>
         <nav>
             <div class="logo">
-                <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+                <h1><a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a></h1>
+                <a href="{{ '/' | relative_url }}" class="site-icon"><i class="fas fa-plug"></i></a>
             </div>
             <div class="menu-toggle" id="mobile-menu">
                 <span class="bar"></span>
@@ -31,10 +31,7 @@
                 <li><a href="{{ '/' | relative_url }}">Home</a></li>
                 <li><a href="{{ '/trade-recaps' | relative_url }}">Trade Recaps</a></li>
                 <li><a href="{{ '/playbook' | relative_url }}">Playbook</a></li>
-
-
                 <li><a href="{{ '/blog' | relative_url }}">Blog</a></li>
-                
             </ul>
         </nav>
     </header>
@@ -52,8 +49,6 @@
             navList.classList.toggle('active');
         });
     </script>
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-    
 </body>
 </html>
