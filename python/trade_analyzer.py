@@ -27,13 +27,43 @@ def custom_trading_day(dt):
 # Apply the custom trading day function
 df['CustomTradeDay'] = df['EnteredAt'].apply(custom_trading_day)
 
+# Define a mapping of contract abbreviations to full names
+contract_mapping = {
+    'ES': 'E-mini S&P',
+    'GC': 'Gold',
+    'MGC': 'Micro Gold',
+    'NQ': 'E-mini NASDAQ',
+    'MNQ': 'Micro E-mini NASDAQ',
+    'CL': 'Crude Oil',
+    'MCL': 'Micro Crude Oil',
+    'YM': 'E-mini Dow',
+    'MYM': 'Micro E-mini Dow',
+    'RTY': 'E-mini Russell',
+    'M2K': 'Micro E-mini Russell',
+    'ZB': 'US Treasury Bond',
+    'ZF': '5-Year US Treasury Note',
+    'ZN': '10-Year US Treasury Note',
+    'ZT': '2-Year US Treasury Note'
+}
+
+# Function to extract the contract prefix from the contract name
+def get_contract_name(contract):
+    for key in contract_mapping.keys():
+        if contract.startswith(key):
+            return contract_mapping[key]
+    return contract
+
+# Apply the contract mapping function
+df['FullContractName'] = df['ContractName'].apply(get_contract_name)
+
 # Group trades by ContractName, CustomTradeDay, and EnteredAt
-grouped = df.groupby(['ContractName', 'CustomTradeDay', 'EnteredAt'])
+grouped = df.groupby(['FullContractName', 'CustomTradeDay', 'EnteredAt'])
 
 # Function to aggregate trades
 def aggregate_trades(group):
     result = {
         'ContractName': group['ContractName'].iloc[0],
+        'FullContractName': group['FullContractName'].iloc[0],
         'CustomTradeDay': group['CustomTradeDay'].iloc[0],
         'EnteredAt': group['EnteredAt'].iloc[0],
         'ExitedAt': group['ExitedAt'].max(),  # Use the latest exit time
@@ -55,17 +85,19 @@ aggregated_df = aggregated_df.sort_values(by='EnteredAt', ascending=False)
 # Generate the HTML table content
 html_content = "<table class=\"trade-table\">\n"
 html_content += "<thead>\n"
-html_content += "<tr><th>Entered At</th><th>Exited At</th><th>Entry Price</th><th>Exit Price</th><th>Size</th><th>Fees</th><th>PnL</th><th>Net</th><th>Type</th></tr>\n"
+html_content += "<tr><th>Entered At</th><th>Exited At</th><th>Entry Price</th><th>Exit Price</th><th>Size</th><th>Fees</th><th>PnL</th><th>Net</th><th>Type</th><th>Contract</th><th>W/L</th></tr>\n"
 html_content += "</thead>\n"
 html_content += "<tbody>\n"
 
 for _, trade in aggregated_df.iterrows():
     entered_time = trade['EnteredAt'].strftime('%I:%M %p (ET)')
     exited_time = trade['ExitedAt'].strftime('%I:%M %p (ET)')
+    net_pnl = trade['TotalPnL'] - trade['TotalFees']
+    wl_class = 'win' if net_pnl >= 0 else 'loss'
     trade_details = (
-        f"<tr><td>{entered_time}</td><td>{exited_time}</td><td>{trade['EntryPrice']:.2f}</td><td>{trade['ExitPrice']:.2f}</td>"
+        f"<tr class=\"{wl_class}\"><td>{entered_time}</td><td>{exited_time}</td><td>{trade['EntryPrice']:.2f}</td><td>{trade['ExitPrice']:.2f}</td>"
         f"<td>{trade['TotalSize']}</td><td>{trade['TotalFees']:.2f}</td><td>{trade['TotalPnL']:.2f}</td>"
-        f"<td>{trade['TotalPnL'] - trade['TotalFees']:.2f}</td><td>{trade['Type']}</td></tr>"
+        f"<td>{net_pnl:.2f}</td><td>{trade['Type']}</td><td>{trade['FullContractName']}</td><td>{'W' if net_pnl >= 0 else 'L'}</td></tr>"
     )
     html_content += trade_details + "\n"
 
