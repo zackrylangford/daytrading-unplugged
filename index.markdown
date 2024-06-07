@@ -23,14 +23,24 @@ title: Camarilla Futures
         </ul>
     </div>
 
-    <div class="main-content">
-        <h2>Latest Post</h2>
-        {% assign latest_post = site.posts | sort: 'date' | last %}
-        <h2>{{ latest_post.title }}</h2>
-        <p><i>{{ latest_post.date | date: "%B %d, %Y" }}</i></p>
-        <p>{{ latest_post.content }}</p>
-    </div>
-
+<div class="main-content">
+    <h2>Latest Post</h2>
+    {% assign latest_posts = site.posts | sort: 'date' | reverse %}
+    {% assign latest_non_trade_recap_post = null %}
+    {% for post in latest_posts %}
+        {% unless post.tags contains "trade-recap" %}
+            {% assign latest_non_trade_recap_post = post %}
+            {% break %}
+        {% endunless %}
+    {% endfor %}
+    {% if latest_non_trade_recap_post %}
+        <h2>{{ latest_non_trade_recap_post.title }}</h2>
+        <p><i>{{ latest_non_trade_recap_post.date | date: "%B %d, %Y" }}</i></p>
+        <p>{{ latest_non_trade_recap_post.content }}</p>
+    {% else %}
+        <p>No posts available.</p>
+    {% endif %}
+</div>
     <div class="featured-posts">
         <h2>More Posts</h2>
         <div class="featured-posts-grid">

@@ -3,6 +3,7 @@ layout: blog-post
 title:  "Trading Recap - Thursday, June 6, 2024"
 date:   2024-06-06
 categories: trade-recap
+tags: trade-recap
 author:
     name: Zack
     image: "/assets/images/authors/zack.jpg"
