@@ -21,8 +21,6 @@
 .hero h1 {
     font-size: 5em;
     margin: 0;
-    font-family: "Ubuntu Sans Mono", monospace;
-    font-optical-sizing: auto; 
 }
 
 .hero p {
