@@ -1,6 +1,6 @@
 ---
 layout: blog-post
-title:  "Trading Recap - Thursday, June 6, 2024"
+title:  "Trading Recap - Friday, June 7, 2024"
 date:   2024-06-07
 categories: trade-recap
 tags: trade-recap
@@ -10,7 +10,7 @@ author:
 ---
 
 ### Overview
-
+Much better day today than yesterday. Way less stressful, although there definitely was some stress. Took way less trades and gave them time to work out. Also took some evening trades last night which worked out well. Gold really sold off though, so I am glad I was able to catch the last push higher last night. This was more in line with the style that I want to trade in going forward. Yesterday was just too much for me to handle. Closed out my trading platform and had a green week. 
 
 ### Trade Data
 

@@ -41,13 +41,15 @@ function fetchTradeData(tradeDate, placeholderId, apiEndpoint) {
       const avgWinningTrade = numWinningTrades > 0 ? (totalWinningPnL / numWinningTrades).toFixed(2) : 0;
       const avgLosingTrade = numLosingTrades > 0 ? (totalLosingPnL / numLosingTrades).toFixed(2) : 0;
       const rewardToRiskRatio = numWinningTrades > 0 && numLosingTrades > 0 ? (avgWinningTrade / Math.abs(avgLosingTrade)).toFixed(2) : 0;
+      const totalTrades = trades.length;
 
       // Create table HTML
       let tableHTML = `
+        <p><strong>Total Trades: ${totalTrades}</strong></p>
         <p><strong>Total Net PnL: ${totalNetPnL.toFixed(2)}</strong></p>
         <p><strong>Average Winning Trade: ${avgWinningTrade}</strong></p>
         <p><strong>Average Losing Trade: ${avgLosingTrade}</strong></p>
-        <p><strong>Reward to Risk Ratio: ${rewardToRiskRatio}</strong></p>
+        <p><strong>Reward:Risk Ratio: ${rewardToRiskRatio}:1</strong></p>
       `;
       tableHTML += '<table class="trade-table">';
       tableHTML += `
