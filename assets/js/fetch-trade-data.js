@@ -58,7 +58,7 @@ function fetchTradeData(tradeDate, placeholderId, apiEndpoint) {
             <th>Entered At</th>
             <th>Exited At</th>
             <th>Entry Price</th>
-            <th>Exit Price</th>
+            <th>Avg. Exit Price</th>
             <th>Size</th>
             <th>Fees</th>
             <th>PnL</th>
