@@ -17,5 +17,3 @@ While there are many strategies in hitting, especially at higher levels, the mos
 The same principle applies to day trading. You need a plan and the discipline to swing at good pitches. YOLOing everything will lead to strikeouts.
 
 Remember, patience and strategy are key. Swing at good pitches, both in baseball and trading.
-
----
