@@ -5,7 +5,7 @@ title: Camarilla Futures
 
 <div class="container">
     <div class="sidebar">
-        <h2><i class="fas fa-chart-line"></i> Trade Recaps</h2>
+        <center><h2><i class="fas fa-chart-line"></i> Trade Recaps</h2></center>
         <ul>
             {% assign trade_recaps = site.posts | where: "categories", "trade-recap" | sort: 'date' | reverse %}
             {% for post in trade_recaps limit:5 %}
@@ -14,33 +14,34 @@ title: Camarilla Futures
             </li>
             {% endfor %}
         </ul>
-        <a href="{{ '/trade-recaps' | relative_url }}" class="view-more-link"><i class="fas fa-arrow-right"></i> More Recaps</a>
-        <h2><i class="fas fa-book"></i> Playbook</h2>
+        <center><a href="{{ '/trade-recaps' | relative_url }}" class="view-more-link"> View All Recaps</a></center>
+        <br>
         <ul>
             <li>
-                <a href="{{ '/playbook' | relative_url }}" class="view-more-link"><i class="fas fa-arrow-right"></i> Trading Strategies Playbook</a>
+                <center><a href="{{ '/playbook' | relative_url }}" class="view-more-link"> <i class="fas fa-book"></i> Zack's Playbook</a></center>
             </li>
         </ul>
     </div>
 
-<div class="main-content">
-    <h2>Latest Post</h2>
-    {% assign latest_posts = site.posts | sort: 'date' | reverse %}
-    {% assign latest_non_trade_recap_post = null %}
-    {% for post in latest_posts %}
-        {% unless post.tags contains "trade-recap" %}
-            {% assign latest_non_trade_recap_post = post %}
-            {% break %}
-        {% endunless %}
-    {% endfor %}
-    {% if latest_non_trade_recap_post %}
-        <h2>{{ latest_non_trade_recap_post.title }}</h2>
-        <p><i>{{ latest_non_trade_recap_post.date | date: "%B %d, %Y" }}</i></p>
-        <p>{{ latest_non_trade_recap_post.content }}</p>
-    {% else %}
-        <p>No posts available.</p>
-    {% endif %}
-</div>
+    <div class="main-content">
+        <h2>Latest Post</h2>
+        {% assign latest_posts = site.posts | sort: 'date' | reverse %}
+        {% assign latest_non_trade_recap_post = null %}
+        {% for post in latest_posts %}
+            {% unless post.tags contains "trade-recap" %}
+                {% assign latest_non_trade_recap_post = post %}
+                {% break %}
+            {% endunless %}
+        {% endfor %}
+        {% if latest_non_trade_recap_post %}
+            <h2>{{ latest_non_trade_recap_post.title }}</h2>
+            <p><i>{{ latest_non_trade_recap_post.date | date: "%B %d, %Y" }}</i></p>
+            <p>{{ latest_non_trade_recap_post.content }}</p>
+        {% else %}
+            <p>No posts available.</p>
+        {% endif %}
+    </div>
+
     <div class="featured-posts">
         <h2>More Posts</h2>
         <div class="featured-posts-grid">
