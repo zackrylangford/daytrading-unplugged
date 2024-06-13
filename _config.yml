@@ -27,6 +27,10 @@ url: "https://daytradingunplugged.com" # the base hostname & protocol for your s
 # Build settings
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-archives
+  - jekyll-paginate
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -49,3 +53,19 @@ plugins:
 #   - vendor/ruby/
 exclude:
   - .venv
+
+# Pagination settings
+paginate: 5
+paginate_path: "/page:num/"
+
+# Archive settings
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layouts:
+    category: archive
+    tag: archive
+  permalinks:
+    category: /category/:name/
+    tag: /tag/:name/
