@@ -10,9 +10,23 @@
     color: white;
     text-align: left; /* Align text to the left */
     padding-left: 230px; /* Add some padding to the left */
+    filter: grayscale(100%); /* Apply black and white filter */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: 1; /* Ensure the overlay is behind the text */
 }
 
 .hero-text {
+    position: relative;
+    z-index: 2; /* Ensure the text is above the overlay */
     padding: 20px;
     border-radius: 10px;
     max-width: 80%; /* Limit the width of the text container */
@@ -37,7 +51,7 @@
     }
 
     .hero-text {
-        background: rgba(0, 0, 0, 0.7); /* Darker semi-transparent background on mobile */
+
         max-width: 90%; /* Slightly wider on mobile for better readability */
         padding: 10px; /* Adjust padding for smaller screens */
         justify-content: center;
