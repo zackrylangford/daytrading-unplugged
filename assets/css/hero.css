@@ -5,12 +5,10 @@
     background-position: center;
     height: 400px;
     display: flex;
-    justify-content: flex-start; /* Align items to the left */
-    align-items: center;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
     color: white;
-    text-align: left; /* Align text to the left */
-    padding-left: 230px; /* Add some padding to the left */
-    filter: grayscale(100%); /* Apply black and white filter */
+    text-align: center; /* Center text within the container */
 }
 
 .hero::before {
@@ -24,17 +22,30 @@
     z-index: 1; /* Ensure the overlay is behind the text */
 }
 
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3); /* Slightly less transparent black overlay */
+    z-index: 2; /* Ensure this overlay is above the first black overlay */
+}
+
 .hero-text {
     position: relative;
-    z-index: 2; /* Ensure the text is above the overlay */
+    z-index: 3; /* Ensure the text is above the overlays */
     padding: 20px;
     border-radius: 10px;
     max-width: 80%; /* Limit the width of the text container */
+    text-align: center; /* Center text within the container */
 }
 
 .hero h1 {
     font-size: 5em;
     margin: 0;
+    color: rgba(255, 255, 255, 0.8); /* Slightly transparent white text */
 }
 
 .hero p {
@@ -46,12 +57,11 @@
     .hero {
         justify-content: center; /* Center content horizontally */
         align-items: center; /* Center content vertically */
-        text-align: center;
+        text-align: center; /* Center text within the container */
         padding-left: 0; /* Remove left padding */
     }
 
     .hero-text {
-
         max-width: 90%; /* Slightly wider on mobile for better readability */
         padding: 10px; /* Adjust padding for smaller screens */
         justify-content: center;
