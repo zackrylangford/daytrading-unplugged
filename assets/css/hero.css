@@ -22,35 +22,56 @@
     z-index: 1; /* Ensure the overlay is behind the text */
 }
 
-.hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.3); /* Slightly less transparent black overlay */
-    z-index: 2; /* Ensure this overlay is above the first black overlay */
-}
-
 .hero-text {
     position: relative;
     z-index: 3; /* Ensure the text is above the overlays */
     padding: 20px;
     border-radius: 10px;
-    max-width: 80%; /* Limit the width of the text container */
     text-align: center; /* Center text within the container */
 }
 
 .hero h1 {
     font-size: 5em;
     margin: 0;
-    color: rgba(255, 255, 255, 0.8); /* Slightly transparent white text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.hero p {
-    font-size: 1em; /* Increase font size */
-    margin: 0;
+.icon {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.icon img {
+    height: 50px; /* Adjust the size of the icon */
+    width: auto;
+}
+
+.vertical-line {
+    height: 50px; /* Same height as the icon */
+    width: 2px;
+    background-color: white; /* Adjust the color of the line */
+    margin: 0 10px;
+}
+
+.title {
+    display: flex;
+    flex-direction: column; /* Stack the words vertically */
+    align-items: center;
+}
+
+.filled-text {
+    font-size: 1em; /* Adjust the font size if needed */
+    color: white; /* Filled text color */
+}
+
+.outlined-text {
+    font-size: 1em; /* Adjust the font size if needed */
+    color: transparent; /* Make text transparent */
+    -webkit-text-stroke: 1px white; /* Outline color and thickness */
+    text-stroke: 1px white; /* For non-webkit browsers */
 }
 
 @media (max-width: 1000px) {
@@ -70,9 +91,19 @@
 
     .hero h1 {
         font-size: 3.5em; /* Decrease font size for mobile */
+        flex-direction: column; /* Stack elements vertically */
     }
 
-    .hero p {
-        font-size: 1em; /* Decrease font size for mobile */
+    .icon img,
+    .vertical-line {
+        height: 30px; /* Smaller size for mobile */
+    }
+
+    .vertical-line {
+        width: 1px; /* Thinner line for mobile */
+    }
+
+    .vertical-line {
+        display: none; /* Hide the vertical line on mobile */
     }
 }
