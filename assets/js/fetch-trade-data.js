@@ -55,6 +55,7 @@ function fetchTradeData(tradeDate, placeholderId, apiEndpoint) {
       tableHTML += `
         <thead>
           <tr>
+            <th>#</th>
             <th>Entered At</th>
             <th>Exited At</th>
             <th>Entry Price</th>
@@ -71,7 +72,7 @@ function fetchTradeData(tradeDate, placeholderId, apiEndpoint) {
         <tbody>
       `;
 
-      trades.forEach(trade => {
+      trades.forEach((trade, index) => {
         const enteredAt = new Date(trade.EnteredAt).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
         const exitedAt = new Date(trade.ExitedAt).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
         const netPnL = parseFloat(trade.TotalPnL) - parseFloat(trade.TotalFees);
@@ -80,6 +81,7 @@ function fetchTradeData(tradeDate, placeholderId, apiEndpoint) {
 
         tableHTML += `
           <tr class="${wlClass}">
+            <td data-label="#">${index + 1}</td>
             <td data-label="Entered At">${enteredAt} (ET)</td>
             <td data-label="Exited At">${exitedAt} (ET)</td>
             <td data-label="Entry Price">${parseFloat(trade.EntryPrice).toFixed(2)}</td>

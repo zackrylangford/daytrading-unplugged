@@ -20,6 +20,7 @@ On to next week!
 
 ### Trade Data
 
+<div class="trade-table-container">
 <div id="trade-table-placeholder">Loading trade data...</div>
 
 <script>
@@ -31,6 +32,7 @@ On to next week!
 </script>
 
 
+</div>
 ### Screen Shot of MES ticker for the day
 
 

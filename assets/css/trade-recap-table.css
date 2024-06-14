@@ -1,4 +1,7 @@
-/* assets/css/trade-table.css */
+.trade-table-container {
+  width: 100%;
+  overflow-x: auto;
+}
 
 .trade-table {
   width: 100%;
@@ -29,16 +32,14 @@
 }
 
 @media screen and (max-width: 768px) {
-  .trade-table th:nth-child(3), .trade-table td:nth-child(3), /* Entry Price */
-  .trade-table th:nth-child(4), .trade-table td:nth-child(4), /* Exit Price */
-  .trade-table th:nth-child(6), .trade-table td:nth-child(6), /* Fees */
-  .trade-table th:nth-child(7), .trade-table td:nth-child(7) { /* PnL */
-    display: none;
+  .trade-table-container {
+    width: 100%;
+    overflow-x: auto;
+    padding: 0 10px;
   }
 
   .trade-table {
     display: block;
-    overflow-x: auto;
     white-space: nowrap;
   }
 
