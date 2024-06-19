@@ -1,7 +1,7 @@
 ---
 layout: blog-post
-title:  "Trading Recap - Tuesday, June 18th, 2024"
-date:   2024-06-18
+title:  "Trading Recap - Wednesday, June 19th, 2024"
+date:   2024-06-19
 categories: trade-recap
 tags: trade-recap
 author:
