@@ -6,7 +6,9 @@ paginate: true
 
 <div class="container">
     <div class="sidebar">
-        <center><h2><i class="fas fa-chart-line"></i> Trade Recaps</h2></center>
+        <center>
+            <h2><i class="fas fa-chart-line"></i> Trade Recaps</h2>
+        </center>
         <ul>
             {% assign trade_recaps = site.posts | where: "categories", "trade-recap" | sort: 'date' | reverse %}
             {% for post in trade_recaps limit:5 %}
@@ -15,12 +17,16 @@ paginate: true
             </li>
             {% endfor %}
         </ul>
-        <center><a href="{{ '/trade-recaps' | relative_url }}" class="view-more-link"> View All Recaps</a></center>
-
+        <center>
+            <a href="{{ '/trade-recaps' | relative_url }}" class="view-more-link"> View All Recaps</a>
+        </center>
     </div>
 
     <div class="main-content">
-        <h2>Latest Post</h2>
+        <center>
+            <h2>Latest Post</h2>
+        </center>
+        <hr>
         {% assign latest_posts = site.posts | sort: 'date' | reverse %}
         {% assign latest_non_trade_recap_post = null %}
         {% for post in latest_posts %}
@@ -30,9 +36,19 @@ paginate: true
             {% endunless %}
         {% endfor %}
         {% if latest_non_trade_recap_post %}
-            <h2>{{ latest_non_trade_recap_post.title }}</h2>
-            <p><i>{{ latest_non_trade_recap_post.date | date: "%B %d, %Y" }}</i></p>
-            <p>{{ latest_non_trade_recap_post.content }}</p>
+            <div class="latest-post">
+                
+    
+                    <h2 class="post-title">{{ latest_non_trade_recap_post.title }}</h2>
+                    <br>
+                    <img src="{{ latest_non_trade_recap_post.author.image | relative_url }}" alt="{{ latest_non_trade_recap_post.author.name }} Thumbnail" class="author-thumbnail">
+                    <div class="author-details">
+                        
+                        <p class="author-name">By {{ latest_non_trade_recap_post.author.name }}</p>
+                        <p class="publish-date">{{ latest_non_trade_recap_post.date | date: "%B %d, %Y" }}</p>
+                </div>
+                <p>{{ latest_non_trade_recap_post.content }}</p>
+            </div>
         {% else %}
             <p>No posts available.</p>
         {% endif %}
@@ -44,9 +60,9 @@ paginate: true
             {% for post in site.posts limit:3 %}
             <div class="featured-post">
                 <div class="featured-post-text">
-                    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-                    <p>{{ post.date | date: "%B %d, %Y" }}</p>
-                    <a href="{{ post.url | relative_url }}">Read More</a>
+                <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+                <p>{{ post.date | date: "%B %d, %Y" }}</p>
+                <a href="{{ post.url | relative_url }}">Read More</a>
                 </div>
             </div>
             {% endfor %}
