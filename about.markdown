@@ -5,7 +5,6 @@ author:
     name: Zack
     image: "/assets/images/authors/zack.jpg"
 ---
-## Welcome to Day Trading Unplugged!
 
 Hi, I'm Zack! Since 2018, I've been captivated by the world of trading, exploring it both as a hobby and a side hustle. The markets have always intrigued me, and my interest in day trading and technical analysis has only grown over time.
 
