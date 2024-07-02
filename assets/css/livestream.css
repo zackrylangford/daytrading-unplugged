@@ -30,10 +30,15 @@
     margin-right: 10px;
     cursor: pointer;
     position: relative; /* To position the upcoming label */
-    height: 250px; /* Increased height */
+    height: 300px; /* Increased height */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background: #f0f0f0; /* Card background color */
+    border: 1px solid #ccc; /* Card border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Card padding */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Card shadow */
 }
 
 .thumbnail-carousel .video-container:last-child {
@@ -44,13 +49,14 @@
     width: 100%;
     height: 150px; /* Increased height for uniformity */
     border: 0;
+    border-radius: 5px; /* Rounded corners */
 }
 
 .video-title, .video-description {
     padding: 5px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: normal; /* Allow text wrapping */
+    overflow: visible; /* Allow text overflow */
+    text-overflow: unset; /* Reset text overflow */
 }
 
 .video-title {
