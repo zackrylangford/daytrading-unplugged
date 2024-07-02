@@ -8,7 +8,7 @@ async function fetchStreams() {
     return data;
 }
 
-function createVideoElement(video, isMain = false) {
+function createVideoElement(video, isMain = false, isUpcoming = false) {
     const container = document.createElement('div');
     container.classList.add('video-container');
     if (isMain) container.classList.add('main-video');
@@ -29,6 +29,13 @@ function createVideoElement(video, isMain = false) {
     container.appendChild(iframe);
     container.appendChild(title);
     container.appendChild(description);
+
+    if (isUpcoming) {
+        const label = document.createElement('div');
+        label.classList.add('upcoming-label');
+        label.textContent = 'Upcoming';
+        container.appendChild(label);
+    }
 
     return container;
 }
@@ -58,7 +65,6 @@ async function renderStreams() {
     const streams = await fetchStreams();
 
     const archivedContainer = document.getElementById('archived-streams-container');
-    const upcomingContainer = document.getElementById('next-scheduled-stream');
     const testButton = document.getElementById('test-live-button');
 
     const liveStreams = streams.filter(video => video.type === 'live');
@@ -68,13 +74,6 @@ async function renderStreams() {
     if (scheduledStreams.length > 0) {
         nextScheduledVideo = scheduledStreams[0];
         updateMainVideo(nextScheduledVideo);
-        const videoElement = createVideoElement(nextScheduledVideo);
-        const scheduledTime = document.createElement('div');
-        scheduledTime.textContent = `Scheduled Start Time: ${new Date(nextScheduledVideo.scheduledStartTime).toLocaleString()}`;
-        upcomingContainer.appendChild(videoElement);
-        upcomingContainer.appendChild(scheduledTime);
-        document.getElementById('upcoming-stream-container').style.display = 'block';
-        // testButton.style.display = 'block';
     } else if (liveStreams.length > 0) {
         updateMainVideo(liveStreams[0]);
     } else if (archivedStreams.length > 0) {
@@ -82,6 +81,11 @@ async function renderStreams() {
     }
 
     if (archivedContainer) archivedContainer.innerHTML = ''; // Clear loading text
+
+    if (nextScheduledVideo) {
+        const videoElement = createVideoElement(nextScheduledVideo, false, true);
+        archivedContainer.appendChild(videoElement);
+    }
 
     archivedStreams.forEach(video => {
         const videoElement = createVideoElement(video);
