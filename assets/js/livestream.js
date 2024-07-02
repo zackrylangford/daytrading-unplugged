@@ -18,8 +18,8 @@ function createThumbnailElement(video, isMain = false, isUpcoming = false) {
     thumbnail.alt = video.title;
 
     const title = document.createElement('div');
-    const date = new Date(video.publishedAt).toLocaleDateString(); // Format the date
-    title.textContent = `${date} - ${video.title}`;
+
+    title.textContent = `${video.title}`;
     title.classList.add('video-title');
 
     const description = document.createElement('div');
