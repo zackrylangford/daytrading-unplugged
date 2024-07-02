@@ -8,8 +8,10 @@ async function fetchStreams() {
     return data;
 }
 
-function createVideoElement(video) {
+function createVideoElement(video, isMain = false) {
     const container = document.createElement('div');
+    container.classList.add('video-container');
+    if (isMain) container.classList.add('main-video');
 
     const iframe = document.createElement('iframe');
     iframe.src = `https://www.youtube.com/embed/${video.video_id}`;
@@ -18,15 +20,24 @@ function createVideoElement(video) {
 
     const title = document.createElement('div');
     title.textContent = video.title;
+    title.classList.add('video-title');
 
     const description = document.createElement('div');
     description.textContent = video.description;
+    description.classList.add('video-description');
 
     container.appendChild(iframe);
     container.appendChild(title);
     container.appendChild(description);
 
     return container;
+}
+
+function updateMainVideo(video) {
+    const mainVideoPlayer = document.getElementById('main-video-player');
+    mainVideoPlayer.innerHTML = '';
+    const videoElement = createVideoElement(video, true);
+    mainVideoPlayer.appendChild(videoElement);
 }
 
 function updateScheduledToLive() {
@@ -37,64 +48,46 @@ function updateScheduledToLive() {
 }
 
 function transitionToLive() {
-    const liveContainer = document.getElementById('live-stream-container');
     const upcomingContainer = document.getElementById('upcoming-stream-container');
-    const nextScheduledContainer = document.getElementById('next-scheduled-stream');
-    
-    // Clear upcoming stream container
-    if (nextScheduledContainer) nextScheduledContainer.innerHTML = '';
-    
-    // Update the next scheduled video to live
-    const videoElement = createVideoElement(nextScheduledVideo);
-    liveContainer.appendChild(videoElement);
-    
-    // Update heading to indicate the stream is now live
-    const liveHeading = document.createElement('h2');
-    liveHeading.textContent = 'Now Live';
-    liveContainer.prepend(liveHeading);
-    
-    // Hide the upcoming stream container
+    updateMainVideo(nextScheduledVideo);
     if (upcomingContainer) upcomingContainer.style.display = 'none';
-    
-    nextScheduledVideo = null; // Reset the next scheduled video
+    nextScheduledVideo = null;
 }
 
 async function renderStreams() {
     const streams = await fetchStreams();
 
-    const liveContainer = document.getElementById('live-stream-container');
     const archivedContainer = document.getElementById('archived-streams-container');
     const upcomingContainer = document.getElementById('next-scheduled-stream');
     const testButton = document.getElementById('test-live-button');
 
-    if (liveContainer) liveContainer.innerHTML = ''; // Clear loading text
-    if (archivedContainer) archivedContainer.innerHTML = ''; // Clear loading text
-    if (upcomingContainer) upcomingContainer.innerHTML = ''; // Clear loading text
+    const liveStreams = streams.filter(video => video.type === 'live');
+    const archivedStreams = streams.filter(video => video.type === 'archived');
+    const scheduledStreams = streams.filter(video => video.type === 'scheduled');
 
-    let nextScheduled = null;
-
-    streams.forEach(video => {
-        const videoElement = createVideoElement(video);
-        if (video.type === 'live') {
-            if (liveContainer) liveContainer.appendChild(videoElement);
-        } else if (video.type === 'archived') {
-            if (archivedContainer) archivedContainer.appendChild(videoElement);
-        } else if (video.type === 'scheduled') {
-            if (!nextScheduled || new Date(video.scheduledStartTime) < new Date(nextScheduled.scheduledStartTime)) {
-                nextScheduled = video;
-            }
-        }
-    });
-
-    if (nextScheduled && upcomingContainer) {
-        nextScheduledVideo = nextScheduled; // Store the next scheduled video for later update
-        const videoElement = createVideoElement(nextScheduled);
+    if (scheduledStreams.length > 0) {
+        nextScheduledVideo = scheduledStreams[0];
+        updateMainVideo(nextScheduledVideo);
+        const videoElement = createVideoElement(nextScheduledVideo);
         const scheduledTime = document.createElement('div');
-        scheduledTime.textContent = `Scheduled Start Time: ${new Date(nextScheduled.scheduledStartTime).toLocaleString()}`;
+        scheduledTime.textContent = `Scheduled Start Time: ${new Date(nextScheduledVideo.scheduledStartTime).toLocaleString()}`;
         upcomingContainer.appendChild(videoElement);
         upcomingContainer.appendChild(scheduledTime);
+        document.getElementById('upcoming-stream-container').style.display = 'block';
         // testButton.style.display = 'block';
+    } else if (liveStreams.length > 0) {
+        updateMainVideo(liveStreams[0]);
+    } else if (archivedStreams.length > 0) {
+        updateMainVideo(archivedStreams[0]);
     }
+
+    if (archivedContainer) archivedContainer.innerHTML = ''; // Clear loading text
+
+    archivedStreams.forEach(video => {
+        const videoElement = createVideoElement(video);
+        videoElement.onclick = () => updateMainVideo(video);
+        archivedContainer.appendChild(videoElement);
+    });
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
