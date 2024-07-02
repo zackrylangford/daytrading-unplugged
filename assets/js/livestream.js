@@ -8,25 +8,25 @@ async function fetchStreams() {
     return data;
 }
 
-function createVideoElement(video, isMain = false, isUpcoming = false) {
+function createThumbnailElement(video, isMain = false, isUpcoming = false) {
     const container = document.createElement('div');
     container.classList.add('video-container');
     if (isMain) container.classList.add('main-video');
 
-    const iframe = document.createElement('iframe');
-    iframe.src = `https://www.youtube.com/embed/${video.video_id}`;
-    iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
-    iframe.allowFullscreen = true;
+    const thumbnail = document.createElement('img');
+    thumbnail.src = `https://img.youtube.com/vi/${video.video_id}/0.jpg`;
+    thumbnail.alt = video.title;
 
     const title = document.createElement('div');
-    title.textContent = video.title;
+    const date = new Date(video.publishedAt).toLocaleDateString(); // Format the date
+    title.textContent = `${date} - ${video.title}`;
     title.classList.add('video-title');
 
     const description = document.createElement('div');
-    description.textContent = `${video.description}`;
+    description.textContent = video.description;
     description.classList.add('video-description');
 
-    container.appendChild(iframe);
+    container.appendChild(thumbnail);
     container.appendChild(title);
     container.appendChild(description);
 
@@ -37,13 +37,43 @@ function createVideoElement(video, isMain = false, isUpcoming = false) {
         container.appendChild(label);
     }
 
+    container.addEventListener('click', () => {
+        updateMainVideo(video);
+    });
+
+    return container;
+}
+
+function createMainVideoElement(video) {
+    const container = document.createElement('div');
+    container.classList.add('video-container');
+    container.classList.add('main-video');
+
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube.com/embed/${video.video_id}`;
+    iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+
+    const title = document.createElement('div');
+    const date = new Date(video.publishedAt).toLocaleDateString(); // Format the date
+    title.textContent = `${date} - ${video.title}`;
+    title.classList.add('video-title');
+
+    const description = document.createElement('div');
+    description.textContent = video.description;
+    description.classList.add('video-description');
+
+    container.appendChild(iframe);
+    container.appendChild(title);
+    container.appendChild(description);
+
     return container;
 }
 
 function updateMainVideo(video) {
     const mainVideoPlayer = document.getElementById('main-video-player');
     mainVideoPlayer.innerHTML = '';
-    const videoElement = createVideoElement(video, true);
+    const videoElement = createMainVideoElement(video);
     mainVideoPlayer.appendChild(videoElement);
 }
 
@@ -83,12 +113,12 @@ async function renderStreams() {
     if (archivedContainer) archivedContainer.innerHTML = ''; // Clear loading text
 
     if (nextScheduledVideo) {
-        const videoElement = createVideoElement(nextScheduledVideo, false, true);
+        const videoElement = createThumbnailElement(nextScheduledVideo, false, true);
         archivedContainer.appendChild(videoElement);
     }
 
     archivedStreams.forEach(video => {
-        const videoElement = createVideoElement(video);
+        const videoElement = createThumbnailElement(video);
         videoElement.onclick = () => updateMainVideo(video);
         archivedContainer.appendChild(videoElement);
     });
