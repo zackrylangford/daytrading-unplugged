@@ -26,11 +26,11 @@
 
 .thumbnail-carousel .video-container {
     flex: 0 0 auto;
-    width: 150px;
+    width: 200px; /* Increased width */
     margin-right: 10px;
     cursor: pointer;
     position: relative; /* To position the upcoming label */
-    height: 200px; /* Fixed height for uniformity */
+    height: 250px; /* Increased height */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -42,7 +42,7 @@
 
 .video-container iframe {
     width: 100%;
-    height: 100px; /* Fixed height for uniformity */
+    height: 150px; /* Increased height for uniformity */
     border: 0;
 }
 

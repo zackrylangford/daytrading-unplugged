@@ -23,7 +23,8 @@ function createVideoElement(video, isMain = false, isUpcoming = false) {
     title.classList.add('video-title');
 
     const description = document.createElement('div');
-    description.textContent = video.description;
+    const date = new Date(video.publishedAt).toLocaleDateString(); // Format the date
+    description.textContent = `${video.description} (${date})`;
     description.classList.add('video-description');
 
     container.appendChild(iframe);
