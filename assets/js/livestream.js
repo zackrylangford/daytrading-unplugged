@@ -32,23 +32,31 @@ function createVideoElement(video) {
 function updateScheduledToLive() {
     const currentTime = new Date();
     if (nextScheduledVideo && new Date(nextScheduledVideo.scheduledStartTime) <= currentTime) {
-        const liveContainer = document.getElementById('live-stream-container');
-        const upcomingContainer = document.getElementById('next-scheduled-stream');
-        
-        // Clear upcoming stream container
-        if (upcomingContainer) upcomingContainer.innerHTML = '';
-        
-        // Update the next scheduled video to live
-        const videoElement = createVideoElement(nextScheduledVideo);
-        liveContainer.appendChild(videoElement);
-        
-        // Update heading to indicate the stream is now live
-        const liveHeading = document.createElement('h2');
-        liveHeading.textContent = 'Now Live';
-        liveContainer.prepend(liveHeading);
-        
-        nextScheduledVideo = null; // Reset the next scheduled video
+        transitionToLive();
     }
+}
+
+function transitionToLive() {
+    const liveContainer = document.getElementById('live-stream-container');
+    const upcomingContainer = document.getElementById('upcoming-stream-container');
+    const nextScheduledContainer = document.getElementById('next-scheduled-stream');
+    
+    // Clear upcoming stream container
+    if (nextScheduledContainer) nextScheduledContainer.innerHTML = '';
+    
+    // Update the next scheduled video to live
+    const videoElement = createVideoElement(nextScheduledVideo);
+    liveContainer.appendChild(videoElement);
+    
+    // Update heading to indicate the stream is now live
+    const liveHeading = document.createElement('h2');
+    liveHeading.textContent = 'Now Live';
+    liveContainer.prepend(liveHeading);
+    
+    // Hide the upcoming stream container
+    if (upcomingContainer) upcomingContainer.style.display = 'none';
+    
+    nextScheduledVideo = null; // Reset the next scheduled video
 }
 
 async function renderStreams() {
@@ -57,6 +65,7 @@ async function renderStreams() {
     const liveContainer = document.getElementById('live-stream-container');
     const archivedContainer = document.getElementById('archived-streams-container');
     const upcomingContainer = document.getElementById('next-scheduled-stream');
+    const testButton = document.getElementById('test-live-button');
 
     if (liveContainer) liveContainer.innerHTML = ''; // Clear loading text
     if (archivedContainer) archivedContainer.innerHTML = ''; // Clear loading text
@@ -84,10 +93,14 @@ async function renderStreams() {
         scheduledTime.textContent = `Scheduled Start Time: ${new Date(nextScheduled.scheduledStartTime).toLocaleString()}`;
         upcomingContainer.appendChild(videoElement);
         upcomingContainer.appendChild(scheduledTime);
+        // testButton.style.display = 'block';
     }
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
     await renderStreams();
     setInterval(updateScheduledToLive, 60000); // Check every minute
+
+    const testButton = document.getElementById('test-live-button');
+    testButton.addEventListener('click', transitionToLive); // Add event listener for the test button
 });
